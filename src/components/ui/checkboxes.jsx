@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { useFormContext } from 'react-hook-form';
 
-const Radios = ({
+const Checkboxes = ({
   name,
   options,
   className,
@@ -21,7 +21,7 @@ const Radios = ({
           <input
             id={option}
             className='peer'
-            type='radio'
+            type='checkbox'
             value={option}
             {...register(name, {
               disabled: disabled,
@@ -40,4 +40,4 @@ const Radios = ({
     </>
   );
 };
-export default Radios;
+export default Checkboxes;

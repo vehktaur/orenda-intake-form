@@ -4,7 +4,6 @@ import {
   MenuItem,
   Select as MUISelect,
 } from '@mui/material';
-import clsx from 'clsx';
 import { Controller } from 'react-hook-form';
 
 const Select = ({
@@ -14,11 +13,13 @@ const Select = ({
   options,
   disabled,
   required,
+  variant,
   errorMsg,
   placeholder,
   pattern,
   minLength,
   validations,
+  ...selectProps
 }) => {
   return (
     <div>
@@ -40,18 +41,14 @@ const Select = ({
             <MUISelect
               {...field}
               required={required}
-              helperText={error ? error.message : null}
+              helperText={error ? error.message : ''}
               id={id || name}
               label={label}
               error={!!error}
-              variant='standard'
+              variant={variant || 'standard'}
               fullWidth
               placeholder={placeholder}
-              slotProps={{
-                root: (state) => ({
-                  className: `w-full border-green-500'`
-                }),
-              }}
+              {...selectProps}
             >
               {options.map((option) => (
                 <MenuItem value={option}>{option}</MenuItem>
