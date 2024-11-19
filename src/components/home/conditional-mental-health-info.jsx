@@ -73,7 +73,11 @@ const ConditionalMentalHealthInfo = () => {
               Would you like Orenda to send a referral to NOCD on your behalf?
             </h3>
             <div className='grid grid-cols-2 gap-3'>
-              <RadioBoxes name='refer_to_NOCD?' options={['Yes', 'No']} />
+              <RadioBoxes
+                name='refer_to_NOCD?'
+                options={['Yes', 'No']}
+                registerOptions={{ shouldUnregister: true }}
+              />
             </div>
           </div>
         )}

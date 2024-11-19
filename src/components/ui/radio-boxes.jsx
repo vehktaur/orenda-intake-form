@@ -8,9 +8,8 @@ const RadioBoxes = ({
   disabled,
   required,
   errorMsg,
-  pattern,
-  minLength,
   validations,
+  registerOptions,
 }) => {
   const { register } = useFormContext();
 
@@ -38,9 +37,8 @@ const RadioBoxes = ({
                   value: required,
                   message: errorMsg || 'This field is required',
                 },
-                pattern,
-                minLength,
                 validate: validations,
+                ...registerOptions,
               })}
             />
           </label>
