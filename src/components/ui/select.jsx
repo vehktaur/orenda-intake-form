@@ -37,13 +37,13 @@ const Select = ({
         }}
         render={({ field, fieldState: { error } }) => (
           <FormControl fullWidth>
-            <InputLabel id={id || name}>{options[0]}</InputLabel>
+            <InputLabel id={id || name}>{label}</InputLabel>
             <MUISelect
               {...field}
               required={required}
+              label={label}
               helperText={error ? error.message : ''}
               id={id || name}
-              label={label}
               error={!!error}
               variant={variant || 'standard'}
               fullWidth

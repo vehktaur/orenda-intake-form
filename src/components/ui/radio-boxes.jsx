@@ -25,6 +25,8 @@ const RadioBoxes = ({
             )}
           >
             {option}
+
+            {/* Hidden radio input */}
             <input
               className='peer'
               hidden

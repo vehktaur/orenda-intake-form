@@ -4,6 +4,7 @@ import Input from '../ui/input';
 import RadioBoxes from '../ui/radio-boxes';
 import Radios from '../ui/radios';
 import Select from '../ui/select';
+import { usStates } from '../../lib/definitions';
 
 const PatientsDetails = () => {
   return (
@@ -18,7 +19,8 @@ const PatientsDetails = () => {
 
         <div>
           <h3 className='mb-3 font-medium'>
-            How did you get to hear about Orenda Psychiatry?&nbsp;<span className='text-red-500'>*</span>
+            How did you get to hear about Orenda Psychiatry?&nbsp;
+            <span className='text-red-500'>*</span>
           </h3>
           <div className='grid grid-cols-2 gap-3'>
             <RadioBoxes
@@ -43,7 +45,8 @@ const PatientsDetails = () => {
 
         <div>
           <h3 className='mb-3 font-medium'>
-            Is this appointment for a minor child?&nbsp;<span className='text-red-500'>*</span>
+            Is this appointment for a minor child?&nbsp;
+            <span className='text-red-500'>*</span>
           </h3>
           <div className='grid grid-cols-2 items-stretch gap-3'>
             <RadioBoxes
@@ -126,7 +129,7 @@ const PatientsDetails = () => {
               <Select
                 label='State'
                 name='state'
-                options={['State']}
+                options={usStates}
                 required={true}
                 size='small'
               />

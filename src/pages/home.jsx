@@ -5,12 +5,16 @@ import ConditionalMentalHealthInfo from '../components/home/conditional-mental-h
 import MedicationInfo from '../components/home/medication-info';
 import MentalIllnessHistory from '../components/home/mental-illness-history';
 import LifestyleAndHealth from '../components/home/lifestyle-and-health';
-import InsuranceAndCredit from '../components/home/insurance_and_credit';
+import InsuranceAndPayment from '../components/home/insurance_and_payment';
 
 const Home = () => {
   const methods = useForm();
 
-  const { handleSubmit } = methods;
+  const {
+    handleSubmit,
+    register,
+    formState: { isValid },
+  } = methods;
 
   const onSubmit = (data) => {
     console.log(data);
@@ -58,8 +62,34 @@ const Home = () => {
 
                 <LifestyleAndHealth />
 
-                <InsuranceAndCredit />
+                <InsuranceAndPayment />
               </div>
+
+              <div className='py-5 ~px-2/5'>
+                <div className='flex items-center gap-4 ~text-sm/base'>
+                  <input
+                    className='~size-4/6'
+                    id='terms_and_conditions'
+                    type='checkbox'
+                    value='agreed-to-terms'
+                    {...register('terms_and_conditions', {
+                      required: 'This field is required',
+                    })}
+                  />
+                  <label htmlFor='terms_and_conditions'>
+                    I confirm that I have read and agreed to Orenda's Terms of
+                    Use, Privacy Policy, and Practice Guidelines.&nbsp;
+                    <span className='text-red-500'>*</span>
+                  </label>
+                </div>
+              </div>
+
+              <button
+                disabled={!isValid}
+                className='mx-auto mt-10 block w-full max-w-80 rounded-full border border-black px-4 py-2 transition-colors duration-300 ~text-sm/base hover:bg-[#666] hover:text-white disabled:pointer-events-none disabled:touch-none disabled:border-gray-400 disabled:text-gray-500'
+              >
+                Submit Form
+              </button>
             </form>
           </FormProvider>
         </section>

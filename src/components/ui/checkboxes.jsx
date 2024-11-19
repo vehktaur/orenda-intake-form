@@ -4,6 +4,7 @@ import { useFormContext } from 'react-hook-form';
 const Checkboxes = ({
   name,
   options,
+  size,
   className,
   disabled,
   required,
@@ -20,7 +21,7 @@ const Checkboxes = ({
         <div className={clsx('flex items-center gap-2 text-sm', className)}>
           <input
             id={option}
-            className='peer'
+            className={clsx('peer', size)}
             type='checkbox'
             value={option}
             {...register(name, {
