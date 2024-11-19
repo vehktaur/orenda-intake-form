@@ -1,4 +1,5 @@
 import FileInput from '../ui/file-input';
+import IMask from '../ui/imask';
 import Input from '../ui/input';
 import RadioBoxes from '../ui/radio-boxes';
 
@@ -70,9 +71,10 @@ const InsuranceAndPayment = () => {
           required={true}
         />
 
-        <Input
+        <IMask
           label='Credit Card Expiration (mm/yy)'
           name='credit_card_expiration'
+          mask='99/99'
           required={true}
         />
 
@@ -82,7 +84,11 @@ const InsuranceAndPayment = () => {
           required={true}
         />
 
-        <Input label='Billing Zip Code' name='billing_zip_code' required={true} />
+        <Input
+          label='Billing Zip Code'
+          name='billing_zip_code'
+          required={true}
+        />
       </div>
     </fieldset>
   );

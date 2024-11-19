@@ -197,6 +197,7 @@ const LifestyleAndHealth = () => {
           label='Emergency Contact Phone Number'
           name='emergency_contact_number'
           type='tel'
+          mask='(999) 999-9999'
           required={true}
         />
       </div>

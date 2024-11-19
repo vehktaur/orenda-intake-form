@@ -1,7 +1,24 @@
-import Input from '../ui/input';
+import { useFormContext } from 'react-hook-form';
 import RadioBoxes from '../ui/radio-boxes';
+import { useMemo } from 'react';
 
 const ConditionalMentalHealthInfo = () => {
+  const { watch } = useFormContext();
+
+  const showLastInput = useMemo(() => {
+    const conditions = [
+      watch('thoughts_and_behaviours_worsened_over_time') === 'Yes',
+      watch('has_intrusive_thoughts') === 'Yes',
+      watch('has_repetitive_behaviours') === 'Yes',
+    ];
+
+    return conditions.filter(Boolean).length >= 2;
+  }, [
+    watch('thoughts_and_behaviours_worsened_over_time'),
+    watch('has_intrusive_thoughts'),
+    watch('has_repetitive_behaviours'),
+  ]);
+
   return (
     <fieldset className='fieldset'>
       <div className='~space-y-6/8'>
@@ -46,6 +63,20 @@ const ConditionalMentalHealthInfo = () => {
             />
           </div>
         </div>
+
+        {showLastInput && (
+          <div>
+            <h3 className='mb-3 font-medium'>
+              If you answered 'yes' to two or more of these questions, you may
+              benefit from specialized treatment for OCD. Orenda has a referral
+              partnership with NOCD, a practice specializing in OCD therapy.
+              Would you like Orenda to send a referral to NOCD on your behalf?
+            </h3>
+            <div className='grid grid-cols-2 gap-3'>
+              <RadioBoxes name='refer_to_NOCD?' options={['Yes', 'No']} />
+            </div>
+          </div>
+        )}
 
         <hr className='!my-12 border-[#666]' />
 

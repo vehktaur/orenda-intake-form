@@ -7,6 +7,7 @@ const IMask = ({
   name,
   type,
   id,
+  mask,
   disabled,
   required,
   variant,
@@ -34,7 +35,7 @@ const IMask = ({
         fieldState: { error },
       }) => (
         <InputMask
-          mask='(999) 999-9999'
+          mask={mask}
           onChange={onChange}
           value={value}
         >

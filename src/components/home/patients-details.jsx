@@ -155,6 +155,7 @@ const PatientsDetails = () => {
         <IMask
           label='Telephone Number'
           name='phone_number'
+          mask='(999) 999-9999'
           type='tel'
           required={true}
         />
