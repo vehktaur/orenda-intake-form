@@ -29,7 +29,7 @@ const Home = () => {
         </h1>
 
         {/* Address Info */}
-        <address className='space-y-3 text-sm ~my-10/12'>
+        <address className='space-y-3 text-center font-medium font-heading text-xs not-italic ~my-10/12'>
           <p>Orenda Psychiatry</p>
           <p>80 5th Ave. New York, NY 10011 Suite #903-10</p>
           <p>75 Arlington Street, Ste 500 Boston, MA 02116.</p>{' '}
