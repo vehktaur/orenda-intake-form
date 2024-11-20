@@ -9,7 +9,7 @@ const MentalHealthCareInfo = () => {
 
       <div className='~space-y-6/8'>
         <div>
-          <h3 className='mb-3 font-medium'>
+          <h3 className='label'>
             What brings you to Orenda Psychiatry at this time? Is there
             something specific, such as a particular event? &nbsp;
             <span className='text-red-500'>*</span>
@@ -25,7 +25,7 @@ const MentalHealthCareInfo = () => {
         </div>
 
         <div>
-          <h3 className='mb-3 font-medium'>
+          <h3 className='label'>
             Tell us more about the type of mental health care that you are
             seeking:&nbsp;<span className='text-red-500'>*</span>
           </h3>
@@ -44,7 +44,7 @@ const MentalHealthCareInfo = () => {
         </div>
 
         <div>
-          <h3 className='mb-3 font-medium'>
+          <h3 className='label'>
             Have you seen a mental health professional before? &nbsp;
             <span className='text-red-500'>*</span>
           </h3>
@@ -63,7 +63,7 @@ const MentalHealthCareInfo = () => {
         </div>
 
         <div>
-          <h3 className='mb-3 font-medium'>
+          <h3 className='label'>
             Have you ever been diagnosed or experienced the following
             conditions?&nbsp;<span className='text-red-500'>*</span>
           </h3>
@@ -95,7 +95,7 @@ const MentalHealthCareInfo = () => {
         </div>
 
         <div>
-          <h3 className='mb-3 font-medium'>
+          <h3 className='label'>
             Please check any of the following you have experienced in the past
             six months&nbsp;<span className='text-red-500'>*</span>
           </h3>

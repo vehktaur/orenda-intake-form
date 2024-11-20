@@ -7,7 +7,7 @@ const MedicationInfo = () => {
 
       <div className='~space-y-6/8'>
         <div>
-          <h3 className='mb-3 font-medium'>
+          <h3 className='label'>
             Specify all medications and supplements you are presently taking and
             for what reason. If you do not take any medications just write
             "none" <span className='text-red-500'>*</span>
@@ -23,7 +23,7 @@ const MedicationInfo = () => {
         </div>
 
         <div>
-          <h3 className='mb-3 font-medium'>
+          <h3 className='label'>
             If taking prescription medication, who is your prescribing MD?
             Please include type of MD, name and phone number.
           </h3>

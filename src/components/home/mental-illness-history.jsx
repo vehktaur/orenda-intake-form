@@ -8,7 +8,7 @@ const MentalIllnessHistory = () => {
 
       <div className='~space-y-6/8'>
         <div>
-          <h3 className='mb-3 font-medium'>
+          <h3 className='label'>
             Do you have current suicidal thoughts? If you have current suicidal
             thoughts, please immediately contact 9 1 1 or go to your nearest
             emergency room; or contact the National Suicide Prevention Hotline
@@ -24,7 +24,7 @@ const MentalIllnessHistory = () => {
         </div>
 
         <div>
-          <h3 className='mb-3 font-medium'>
+          <h3 className='label'>
             Have you ever attempted suicide?&nbsp;<span className='text-red-500'>*</span>
           </h3>
           <div className='grid grid-cols-2 gap-3'>
@@ -37,7 +37,7 @@ const MentalIllnessHistory = () => {
         </div>
 
         <div>
-          <h3 className='mb-3 font-medium'>
+          <h3 className='label'>
             Do you have thoughts or urges to harm others?&nbsp;<span className='text-red-500'>*</span>
           </h3>
           <div className='grid grid-cols-2 gap-3'>
@@ -50,7 +50,7 @@ const MentalIllnessHistory = () => {
         </div>
 
         <div>
-          <h3 className='mb-3 font-medium'>
+          <h3 className='label'>
             Have you ever been hospitalized for a psychiatric issue?&nbsp;<span className='text-red-500'>*</span>
           </h3>
           <div className='grid grid-cols-2 gap-3'>
@@ -63,7 +63,7 @@ const MentalIllnessHistory = () => {
         </div>
 
         <div>
-          <h3 className='mb-3 font-medium'>
+          <h3 className='label'>
             Do you have any weapons or guns at home?&nbsp;
             <span className='text-red-500'>*</span>
           </h3>
@@ -77,7 +77,7 @@ const MentalIllnessHistory = () => {
         </div>
 
         <div>
-          <h3 className='mb-3 font-medium'>
+          <h3 className='label'>
             Is there a history of mental illness in your family? If so, please
             provide additional information.&nbsp;<span className='text-red-500'>*</span>
           </h3>

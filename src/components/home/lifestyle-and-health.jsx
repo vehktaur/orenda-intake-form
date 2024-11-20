@@ -10,7 +10,7 @@ const LifestyleAndHealth = () => {
 
       <div className='~space-y-6/8'>
         <div>
-          <h3 className='mb-3 font-medium'>
+          <h3 className='label'>
             If you are in a relationship, please describe the nature of the
             relationship and months or years together.&nbsp;
             <span className='text-red-500'>*</span>
@@ -26,7 +26,7 @@ const LifestyleAndHealth = () => {
         </div>
 
         <div>
-          <h3 className='mb-3 font-medium'>
+          <h3 className='label'>
             Describe your current living situation. Do you live alone, with
             others. With family, etc...&nbsp;
             <span className='text-red-500'>*</span>
@@ -42,7 +42,7 @@ const LifestyleAndHealth = () => {
         </div>
 
         <div>
-          <h3 className='mb-3 font-medium'>
+          <h3 className='label'>
             What is your level of education? Highest grade/degree and type of
             degree.&nbsp;<span className='text-red-500'>*</span>
           </h3>
@@ -57,7 +57,7 @@ const LifestyleAndHealth = () => {
         </div>
 
         <div>
-          <h3 className='mb-3 font-medium'>
+          <h3 className='label'>
             What is your current occupation? What do you do? How long have you
             been doing it?&nbsp;<span className='text-red-500'>*</span>
           </h3>
@@ -72,7 +72,7 @@ const LifestyleAndHealth = () => {
         </div>
 
         <div>
-          <h3 className='mb-3 font-medium'>
+          <h3 className='label'>
             Personal medical history; please check all that apply.&nbsp;
             <span className='text-red-500'>*</span>
           </h3>
@@ -105,7 +105,7 @@ const LifestyleAndHealth = () => {
         </div>
 
         <div>
-          <h3 className='mb-3 font-medium'>
+          <h3 className='label'>
             Do you have any hearing impairments that would affect your
             participation in sessions or require accommodations?&nbsp;
             <span className='text-red-500'>*</span>
@@ -123,7 +123,7 @@ const LifestyleAndHealth = () => {
         </div>
 
         <div>
-          <h3 className='mb-3 font-medium'>
+          <h3 className='label'>
             Are you pregnant or breastfeeding?&nbsp;
             <span className='text-red-500'>*</span>
           </h3>
@@ -137,7 +137,7 @@ const LifestyleAndHealth = () => {
         </div>
 
         <div>
-          <h3 className='mb-3 font-medium'>
+          <h3 className='label'>
             Have you had a physical in the last two years?&nbsp;
             <span className='text-red-500'>*</span>
           </h3>
@@ -167,7 +167,7 @@ const LifestyleAndHealth = () => {
         />
 
         <div>
-          <h3 className='mb-3 font-medium'>
+          <h3 className='label'>
             What else would you like for your provider to know??
           </h3>
           <Input
@@ -180,7 +180,7 @@ const LifestyleAndHealth = () => {
         </div>
 
         <div>
-          <h3 className='mb-3 font-medium'>
+          <h3 className='label'>
             Who would you like us to contact in the event of an emergency? What
             is this person's relationship to you?&nbsp;
             <span className='text-red-500'>*</span>

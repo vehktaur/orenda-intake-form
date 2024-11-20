@@ -18,7 +18,7 @@ const PatientsDetails = () => {
         </div>
 
         <div>
-          <h3 className='mb-3 font-medium'>
+          <h3 className='label'>
             How did you get to hear about Orenda Psychiatry?&nbsp;
             <span className='text-red-500'>*</span>
           </h3>
@@ -38,13 +38,17 @@ const PatientsDetails = () => {
         </div>
 
         <Input
-          label='Date of Birth (mm/dd/yyy)'
+          label='Date of Birth (dd/mm/yyy)'
           name='date_of_birth'
           required={true}
+          type='date'
+          sx={{
+            bgcolor: '#fff',
+          }}
         />
 
         <div>
-          <h3 className='mb-3 font-medium'>
+          <h3 className='label'>
             Is this appointment for a minor child?&nbsp;
             <span className='text-red-500'>*</span>
           </h3>
@@ -58,7 +62,7 @@ const PatientsDetails = () => {
         </div>
 
         <div>
-          <h3 className='mb-3 font-medium'>
+          <h3 className='label flex items-center'>
             Sex assigned at birth:&nbsp;<span className='text-red-500'>*</span>
             <Tooltip
               title='This information is necessary for medical reasons related to psychiatric medications and treatment planning. This information will remain confidential.'
@@ -82,7 +86,7 @@ const PatientsDetails = () => {
         </div>
 
         <div>
-          <h3 className='mb-3 font-medium'>Gender (optional):</h3>
+          <h3 className='label'>Gender (optional):</h3>
           <div className='grid gap-3'>
             <Radios
               name='gender'
@@ -104,7 +108,7 @@ const PatientsDetails = () => {
         </div>
 
         <div>
-          <h3 className='mb-3 font-medium'>
+          <h3 className='label'>
             Address&nbsp;<span className='text-red-500'>*</span>
           </h3>
           <div className='grid ~gap-4/6'>

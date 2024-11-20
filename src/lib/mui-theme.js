@@ -14,6 +14,8 @@ const theme = createTheme({
         },
         root: {
           color: '#000',
+          zIndex: 1,
+          backgroundColor: 'inherit',
           fontWeight: 500,
         },
         error: {

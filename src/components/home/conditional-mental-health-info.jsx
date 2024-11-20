@@ -23,7 +23,7 @@ const ConditionalMentalHealthInfo = () => {
     <fieldset className='fieldset'>
       <div className='~space-y-6/8'>
         <div>
-          <h3 className='mb-3 font-medium'>
+          <h3 className='label'>
             I have frequent thoughts, urges, or images that I don’t want to
             have. (For example, intrusive thoughts, which are ideas or images
             that come to mind uninvited and unwanted)
@@ -34,7 +34,7 @@ const ConditionalMentalHealthInfo = () => {
         </div>
 
         <div>
-          <h3 className='mb-3 font-medium'>
+          <h3 className='label'>
             I do repetitive behaviors such as handwashing or cleaning, avoiding
             certain people or things, asking people for reassurance, repeatedly
             doing things in my mind to feel better or to prevent something bad
@@ -49,7 +49,7 @@ const ConditionalMentalHealthInfo = () => {
         </div>
 
         <div>
-          <h3 className='mb-3 font-medium'>
+          <h3 className='label'>
             Over the last month, these obsessive thoughts and/or compulsive
             behaviors have resulted in: noticeable distress or interfered with
             my functioning at home, work, school, socially, in my relationships,
@@ -66,7 +66,7 @@ const ConditionalMentalHealthInfo = () => {
 
         {showLastInput && (
           <div>
-            <h3 className='mb-3 font-medium'>
+            <h3 className='label'>
               If you answered 'yes' to two or more of these questions, you may
               benefit from specialized treatment for OCD. Orenda has a referral
               partnership with NOCD, a practice specializing in OCD therapy.
@@ -85,7 +85,7 @@ const ConditionalMentalHealthInfo = () => {
         <hr className='!my-12 border-[#666]' />
 
         <div>
-          <h3 className='mb-3 font-medium'>
+          <h3 className='label'>
             Our psychiatric providers stay up to date with the evolving
             landscape of the field, incorporating the latest research and
             innovative treatments. Some of our providers offer at-home

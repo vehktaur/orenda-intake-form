@@ -92,6 +92,18 @@ body {
   .input-base {
     @apply block w-full border-b border-[#D1D1D1] bg-transparent pb-2 outline-none ~text-sm/base;
   }
+
+  .label {
+    @apply mb-3 text-base font-medium;
+  }
+
+  .sublist-decimal {
+    @apply list-decimal space-y-1.5 ps-1 mt-1;
+  }
+
+  .sublist-disc {
+    @apply list-disc space-y-1.5 ps-1 mt-1; 
+  }
 }
 
 @layer components {

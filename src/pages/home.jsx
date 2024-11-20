@@ -6,6 +6,7 @@ import MedicationInfo from '../components/home/medication-info';
 import MentalIllnessHistory from '../components/home/mental-illness-history';
 import LifestyleAndHealth from '../components/home/lifestyle-and-health';
 import InsuranceAndPayment from '../components/home/insurance_and_payment';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   const methods = useForm();
@@ -29,7 +30,7 @@ const Home = () => {
         </h1>
 
         {/* Address Info */}
-        <address className='space-y-3 text-center font-medium font-heading text-xs not-italic ~my-10/12'>
+        <address className='mb-12 mt-6 space-y-3 text-center font-heading text-xs font-medium not-italic'>
           <p>Orenda Psychiatry</p>
           <p>80 5th Ave. New York, NY 10011 Suite #903-10</p>
           <p>75 Arlington Street, Ste 500 Boston, MA 02116.</p>{' '}
@@ -77,8 +78,11 @@ const Home = () => {
                     })}
                   />
                   <label htmlFor='terms_and_conditions'>
-                    I confirm that I have read and agreed to Orenda's Terms of
-                    Use, Privacy Policy, and Practice Guidelines.&nbsp;
+                    I confirm that I have read and agreed to Orenda's{' '}
+                    <Link className='font-medium hover:underline underline-offset-2' to='/policy'>
+                      Terms of Use, and Practice Policy
+                    </Link>
+                    .&nbsp;
                     <span className='text-red-500'>*</span>
                   </label>
                 </div>
