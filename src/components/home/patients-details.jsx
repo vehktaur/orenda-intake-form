@@ -1,7 +1,6 @@
 import Tooltip from '@mui/material/Tooltip';
 import IMask from '../ui/imask';
 import Input from '../ui/input';
-import RadioBoxes from '../ui/radio-boxes';
 import Radios from '../ui/radios';
 import Select from '../ui/select';
 import { usStates } from '../../lib/definitions';
@@ -42,26 +41,6 @@ const PatientsDetails = () => {
             bgcolor: '#fff',
           }}
         />
-
-        <div>
-          <h4 className='label'>
-            How did you get to hear about Orenda Psychiatry?&nbsp;
-            <span className='text-red-500'>*</span>
-          </h4>
-          <div className='grid grid-cols-2 gap-3'>
-            <RadioBoxes
-              name='referral_source'
-              options={[
-                'Google and other search engines',
-                'Psychology today',
-                'Zocdoc',
-                'Referral from a colleague or physician',
-                'Other',
-              ]}
-              required={true}
-            />
-          </div>
-        </div>
       </section>
 
       <section className='fieldset-section'>
@@ -103,6 +82,26 @@ const PatientsDetails = () => {
 
       <section className='fieldset-section'>
         <h3 className='fieldset-section-heading'>More Information</h3>
+
+        <div>
+          <h4 className='label'>
+            How did you get to hear about Orenda Psychiatry?&nbsp;
+            <span className='text-red-500'>*</span>
+          </h4>
+          <div className='grid sm:grid-cols-2 gap-3'>
+            <Radios
+              name='referral_source'
+              options={[
+                'Google and other search engines',
+                'Psychology today',
+                'Zocdoc',
+                'Referral from a colleague or physician',
+                'Other',
+              ]}
+              required={true}
+            />
+          </div>
+        </div>
 
         <div>
           <h4 className='label'>
