@@ -7,7 +7,7 @@ const Radios = ({
   className,
   disabled,
   required = true,
-  errorMsg,
+  errorMsg = 'This field is required',
   registerOptions,
 }) => {
   const {
@@ -34,7 +34,7 @@ const Radios = ({
               disabled: disabled,
               required: {
                 value: required,
-                message: errorMsg || 'This field is required',
+                message: errorMsg,
               },
               ...registerOptions,
             })}

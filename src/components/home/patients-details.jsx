@@ -12,7 +12,7 @@ const PatientsDetails = () => {
 
       <section className='fieldset-section'>
         <h3 className='fieldset-section-heading'>Personal Information</h3>
-        <div className='!mt-4 grid gap-y-6 gap-x-8 sm:grid-cols-2'>
+        <div className='!mt-4 grid gap-x-8 gap-y-6 sm:grid-cols-2'>
           <Input label='First Name' name='first_name' required={true} />
           <Input label='Last Name' name='last_name' required={true} />
         </div>
@@ -57,7 +57,6 @@ const PatientsDetails = () => {
             <Input
               label='City'
               name='city'
-              required={true}
               errorMsg='City is required'
               size='small'
             />
@@ -65,14 +64,12 @@ const PatientsDetails = () => {
               label='State'
               name='state'
               options={usStates}
-              required={true}
               size='small'
             />
             <Input
               label='Zip Code'
               name='zip_code'
               type='number'
-              required={true}
               errorMsg='State is required'
               size='small'
             />
@@ -88,7 +85,7 @@ const PatientsDetails = () => {
             How did you get to hear about Orenda Psychiatry?&nbsp;
             <span className='text-red-500'>*</span>
           </h4>
-          <div className='grid sm:grid-cols-2 gap-3'>
+          <div className='grid gap-3 sm:grid-cols-2'>
             <Radios
               name='referral_source'
               options={[
@@ -98,7 +95,6 @@ const PatientsDetails = () => {
                 'Referral from a colleague or physician',
                 'Other',
               ]}
-              required={true}
             />
           </div>
         </div>
@@ -109,11 +105,7 @@ const PatientsDetails = () => {
             <span className='text-red-500'>*</span>
           </h4>
           <div className='flex items-center ~gap-5/7'>
-            <Radios
-              name='minor_child_appointment'
-              options={['Yes', 'No']}
-              required={true}
-            />
+            <Radios name='minor_child_appointment' options={['Yes', 'No']} />
           </div>
         </div>
 
@@ -133,11 +125,7 @@ const PatientsDetails = () => {
             </Tooltip>
           </h4>
           <div className='flex items-center ~gap-5/7'>
-            <Radios
-              name='sex_at_birth'
-              options={['Male', 'Female']}
-              required={true}
-            />
+            <Radios name='sex_at_birth' options={['Male', 'Female']} />
           </div>
         </div>
 
@@ -159,6 +147,7 @@ const PatientsDetails = () => {
                 'Prefer not to answer',
                 'Not Listed',
               ]}
+              required={false}
             />
           </div>
         </div>

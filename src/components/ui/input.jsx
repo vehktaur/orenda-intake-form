@@ -3,12 +3,12 @@ import { Controller } from 'react-hook-form';
 
 const Input = ({
   name,
-  type,
+  type = 'text',
   id,
   disabled,
-  required,
-  variant,
-  errorMsg,
+  required = true,
+  variant = 'standard',
+  errorMsg = 'This field is required',
   placeholder,
   pattern,
   minLength,
@@ -22,7 +22,7 @@ const Input = ({
         disabled: disabled,
         required: {
           value: required,
-          message: errorMsg || 'This field is required',
+          message: errorMsg,
         },
         pattern,
         minLength,
@@ -32,11 +32,11 @@ const Input = ({
         <TextField
           {...field}
           required={required}
-          type={type || 'text'}
+          type={type}
           helperText={error ? error.message : null}
           id={id || name}
           error={!!error}
-          variant={variant || 'standard'}
+          variant={variant}
           fullWidth
           placeholder={placeholder}
           {...inputProps}

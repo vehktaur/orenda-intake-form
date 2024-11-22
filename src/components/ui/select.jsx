@@ -1,5 +1,6 @@
 import {
   FormControl,
+  FormHelperText,
   InputLabel,
   MenuItem,
   Select as MUISelect,
@@ -12,9 +13,9 @@ const Select = ({
   id,
   options,
   disabled,
-  required,
-  variant,
-  errorMsg,
+  required = true,
+  variant = 'standard',
+  errorMsg = 'This field is required',
   placeholder,
   pattern,
   minLength,
@@ -29,30 +30,34 @@ const Select = ({
           disabled: disabled,
           required: {
             value: required,
-            message: errorMsg || 'This field is required',
+            message: errorMsg,
           },
           pattern,
           minLength,
           validate: validations,
         }}
         render={({ field, fieldState: { error } }) => (
-          <FormControl fullWidth variant={variant || 'standard'}>
+          <FormControl
+            required={required}
+            fullWidth
+            variant={variant}
+            error={!!error}
+          >
             <InputLabel id={id || name}>{label}</InputLabel>
             <MUISelect
               {...field}
-              required={required}
               label={label}
-              helperText={error ? error.message : ''}
               id={id || name}
-              error={!!error}
               fullWidth
               placeholder={placeholder}
               {...selectProps}
             >
+              {!required && <MenuItem value=''>None</MenuItem>}
               {options.map((option) => (
                 <MenuItem value={option}>{option}</MenuItem>
               ))}
             </MUISelect>
+            {error && <FormHelperText>{errorMsg}</FormHelperText>}
           </FormControl>
         )}
       />
