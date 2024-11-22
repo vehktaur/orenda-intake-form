@@ -8,9 +8,7 @@ const Radios = ({
   disabled,
   required = true,
   errorMsg,
-  pattern,
-  minLength,
-  validations,
+  registerOptions,
 }) => {
   const {
     register,
@@ -38,9 +36,7 @@ const Radios = ({
                 value: required,
                 message: errorMsg || 'This field is required',
               },
-              pattern,
-              minLength,
-              validate: validations,
+              ...registerOptions,
             })}
           />
           <label htmlFor={name + option}>{option}</label>
