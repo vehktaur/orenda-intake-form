@@ -20,7 +20,7 @@ const SelectCheckboxes = ({
           <div
             key={name + option}
             className={clsx(
-              'flex items-center rounded-lg border border-[#C9C9C9] px-4 ~gap-2/4 ~py-[0.9rem]/4 hover:border-[#ecf5eb] hover:bg-[#ecf5eb]',
+              'flex cursor-pointer items-center rounded-lg border border-[#C9C9C9] px-4 ~gap-2/4 ~py-[0.9rem]/4 hover:border-[#ecf5eb] hover:bg-[#ecf5eb]',
               className,
             )}
           >
