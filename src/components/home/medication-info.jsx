@@ -3,9 +3,9 @@ import Input from '../ui/input';
 const MedicationInfo = () => {
   return (
     <fieldset className='fieldset'>
-      <legend className='legend'>Medication Info</legend>
+      <h2 className='legend'>Medication Info</h2>
 
-      <div className='~space-y-6/8'>
+      <section className='fieldset-section'>
         <div>
           <h3 className='label'>
             Specify all medications and supplements you are presently taking and
@@ -59,7 +59,7 @@ const MedicationInfo = () => {
           </h3>
           <Input hiddenLabel name='drug_addict?' required={true} />
         </div>
-      </div>
+      </section>
     </fieldset>
   );
 };

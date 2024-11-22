@@ -1,7 +1,6 @@
 import { FormProvider, useForm } from 'react-hook-form';
 import PatientsDetails from '../components/home/patients-details';
 import MentalHealthCareInfo from '../components/home/mental-health-care-info';
-import ConditionalMentalHealthInfo from '../components/home/conditional-mental-health-info';
 import MedicationInfo from '../components/home/medication-info';
 import MentalIllnessHistory from '../components/home/mental-illness-history';
 import LifestyleAndHealth from '../components/home/lifestyle-and-health';
@@ -11,22 +10,22 @@ import { Link } from 'react-router-dom';
 const Home = () => {
   const methods = useForm();
 
-  const {
-    handleSubmit,
-    register,
-    formState: { isValid },
-  } = methods;
+  const { handleSubmit, register, watch } = methods;
 
   const onSubmit = (data) => {
     console.log(data);
   };
 
+  const acceptedTerms = watch('terms_and_conditions')
+
+
+
   return (
     <div className='padding-inline py-16'>
-      <div className='mx-auto max-w-3xl'>
+      <div className='mx-auto max-w-[59.4rem]'>
         {/* Heading */}
         <h1 className='text-center font-heading font-bold ~text-2xl/4xl'>
-          Orenda Complete Intake Form
+          Orenda Intake Form
         </h1>
 
         {/* Address Info */}
@@ -38,11 +37,14 @@ const Home = () => {
             Mailing Address: <br /> 347 Fifth Ave Suite 1402-235 New York, NY
             10016
           </p>
-          <p>(347) 707-7735</p>
+          <p>
+            {' '}
+            Call: <a href='tel:+13477077735'>(347) 707-7735</a>
+          </p>
         </address>
 
         {/* Instruction */}
-        <p className='text-center font-medium ~text-sm/base'>
+        <p className='text-center font-semibold ~text-sm/base'>
           Please fill this out with current information towards your appointment
         </p>
 
@@ -55,8 +57,6 @@ const Home = () => {
 
                 <MentalHealthCareInfo />
 
-                <ConditionalMentalHealthInfo />
-
                 <MedicationInfo />
 
                 <MentalIllnessHistory />
@@ -66,10 +66,10 @@ const Home = () => {
                 <InsuranceAndPayment />
               </div>
 
-              <div className='py-5 ~px-2/5'>
+              <div className='~mt-6/8 ~px-2/12'>
                 <div className='flex items-center gap-4 ~text-sm/base'>
                   <input
-                    className='~size-4/6'
+                    className='~size-4/5'
                     id='terms_and_conditions'
                     type='checkbox'
                     value='agreed-to-terms'
@@ -79,7 +79,10 @@ const Home = () => {
                   />
                   <label htmlFor='terms_and_conditions'>
                     I confirm that I have read and agreed to Orenda's{' '}
-                    <Link className='font-medium hover:underline underline-offset-2' to='/policy'>
+                    <Link
+                      className='font-medium underline-offset-2 hover:underline'
+                      to='/policy'
+                    >
                       Terms of Use, and Practice Policy
                     </Link>
                     .&nbsp;
@@ -89,8 +92,8 @@ const Home = () => {
               </div>
 
               <button
-                disabled={!isValid}
-                className='mx-auto mt-10 block w-full max-w-80 rounded-full border border-black px-4 py-2 transition-colors duration-300 ~text-sm/base hover:bg-[#666] hover:text-white disabled:pointer-events-none disabled:touch-none disabled:border-gray-400 disabled:text-gray-500'
+                disabled={!acceptedTerms}
+                className='mx-auto block w-full max-w-80 rounded-full border border-black px-4 py-2 transition-colors duration-300 ~text-sm/base ~mt-10/12 hover:bg-[#666] hover:text-white disabled:pointer-events-none disabled:touch-none disabled:border-gray-400 disabled:text-gray-500'
               >
                 Submit Form
               </button>

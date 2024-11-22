@@ -1,14 +1,14 @@
-import Checkboxes from '../ui/checkboxes';
+import SelectCheckboxes from '../ui/select-checkboxes';
 import IMask from '../ui/imask';
 import Input from '../ui/input';
-import RadioBoxes from '../ui/radio-boxes';
+import Radios from '../ui/radios';
 
 const LifestyleAndHealth = () => {
   return (
     <fieldset className='fieldset'>
-      <legend className='legend'>Lifestyle & Health</legend>
+      <h2 className='legend'>Lifestyle & Health</h2>
 
-      <div className='~space-y-6/8'>
+      <section className='fieldset-section'>
         <div>
           <h3 className='label'>
             If you are in a relationship, please describe the nature of the
@@ -77,7 +77,7 @@ const LifestyleAndHealth = () => {
             <span className='text-red-500'>*</span>
           </h3>
           <div className='grid gap-3'>
-            <Checkboxes
+            <SelectCheckboxes
               name='personal_medical_history'
               options={[
                 'None apply',
@@ -111,7 +111,7 @@ const LifestyleAndHealth = () => {
             <span className='text-red-500'>*</span>
           </h3>
           <div className='grid grid-cols-2 gap-3'>
-            <RadioBoxes
+            <Radios
               name='hearing_impairments?'
               options={[
                 'No, I do not have any hearing impairments.',
@@ -128,7 +128,7 @@ const LifestyleAndHealth = () => {
             <span className='text-red-500'>*</span>
           </h3>
           <div className='grid grid-cols-2 gap-3'>
-            <RadioBoxes
+            <Radios
               name='pregnant_or_breastfeeding?'
               options={['Yes', 'No']}
               required={true}
@@ -142,7 +142,7 @@ const LifestyleAndHealth = () => {
             <span className='text-red-500'>*</span>
           </h3>
           <div className='grid grid-cols-2 gap-3'>
-            <RadioBoxes
+            <Radios
               name='recent_physical?'
               options={[
                 'Yes, all results were normal',
@@ -200,7 +200,7 @@ const LifestyleAndHealth = () => {
           mask='(999) 999-9999'
           required={true}
         />
-      </div>
+      </section>
     </fieldset>
   );
 };

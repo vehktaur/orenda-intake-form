@@ -6,21 +6,30 @@ const Radios = ({
   options,
   className,
   disabled,
-  required,
+  required = true,
   errorMsg,
   pattern,
   minLength,
   validations,
 }) => {
-  const { register } = useFormContext();
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
 
   return (
     <>
       {options.map((option) => (
-        <div className={clsx('flex items-center gap-2 text-sm', className)}>
+        <div
+          key={name + option}
+          className={clsx(
+            'flex items-center gap-2 font-medium ~text-sm/base',
+            className,
+          )}
+        >
           <input
-            id={option}
-            className='peer'
+            id={name + option}
+            className='peer size-4'
             type='radio'
             value={option}
             {...register(name, {
@@ -34,9 +43,15 @@ const Radios = ({
               validate: validations,
             })}
           />
-          <label htmlFor={option}>{option}</label>
+          <label htmlFor={name + option}>{option}</label>
         </div>
       ))}
+
+      {errors?.[name]?.message && (
+        <p className='!mt-1 px-3 text-xs text-red-500'>
+          {errors?.[name]?.message}
+        </p>
+      )}
     </>
   );
 };

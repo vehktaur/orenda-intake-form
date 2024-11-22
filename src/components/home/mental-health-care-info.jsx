@@ -1,17 +1,17 @@
-import Checkboxes from '../ui/checkboxes';
+import ConditionalMentalHealthInfo from '../../components/home/conditional-mental-health-info';
 import Input from '../ui/input';
-import RadioBoxes from '../ui/radio-boxes';
+import SelectCheckboxes from '../ui/select-checkboxes';
 
 const MentalHealthCareInfo = () => {
   return (
     <fieldset className='fieldset'>
-      <legend className='legend'>Mental Health Care Info</legend>
+      <h2 className='legend'>Mental Health Care Info</h2>
 
-      <div className='~space-y-6/8'>
+      <section className='fieldset-section'>
         <div>
           <h3 className='label'>
             What brings you to Orenda Psychiatry at this time? Is there
-            something specific, such as a particular event? &nbsp;
+            something specific, such as a particular event?&nbsp;
             <span className='text-red-500'>*</span>
           </h3>
           <Input
@@ -29,8 +29,8 @@ const MentalHealthCareInfo = () => {
             Tell us more about the type of mental health care that you are
             seeking:&nbsp;<span className='text-red-500'>*</span>
           </h3>
-          <div className='grid grid-cols-2 gap-3'>
-            <RadioBoxes
+          <div className='grid gap-3'>
+            <SelectCheckboxes
               name='mental_health_type'
               options={[
                 'Psychiatric Services (Medication Management)',
@@ -48,8 +48,8 @@ const MentalHealthCareInfo = () => {
             Have you seen a mental health professional before? &nbsp;
             <span className='text-red-500'>*</span>
           </h3>
-          <div className='grid grid-cols-2 gap-3'>
-            <RadioBoxes
+          <div className='grid gap-3'>
+            <SelectCheckboxes
               name='seen_a_professional_before'
               options={[
                 'Yes, for therapy only.',
@@ -68,7 +68,7 @@ const MentalHealthCareInfo = () => {
             conditions?&nbsp;<span className='text-red-500'>*</span>
           </h3>
           <div className='grid gap-3'>
-            <Checkboxes
+            <SelectCheckboxes
               name='diagnosed_conditions'
               options={[
                 'Depression',
@@ -100,7 +100,7 @@ const MentalHealthCareInfo = () => {
             six months&nbsp;<span className='text-red-500'>*</span>
           </h3>
           <div className='grid gap-3'>
-            <Checkboxes
+            <SelectCheckboxes
               name='recently_experienced_conditions'
               options={[
                 'Increased appetite',
@@ -125,7 +125,9 @@ const MentalHealthCareInfo = () => {
             />
           </div>
         </div>
-      </div>
+
+        <ConditionalMentalHealthInfo />
+      </section>
     </fieldset>
   );
 };

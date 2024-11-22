@@ -1,54 +1,47 @@
 import { useFormContext } from 'react-hook-form';
-import { IoCheckmarkCircleOutline } from 'react-icons/io5';
-import { LuPlus } from 'react-icons/lu';
-import { TbTrashXFilled } from 'react-icons/tb';
+import { LuUpload } from 'react-icons/lu';
 
-const FileInput = ({ name, disabled, required, errorMsg, validations }) => {
+const FileInput = ({
+  label,
+  name,
+  disabled,
+  required,
+  errorMsg,
+  validations,
+}) => {
   const {
     register,
     watch,
-    setValue,
     formState: { errors },
   } = useFormContext();
 
   const file = watch(name)?.[0];
 
   return (
-    <div>
-      <div className='relative'>
-        <label
-          htmlFor={name}
-          className='flex items-center gap-2 rounded-md border border-dashed border-gray-800 px-4 py-4 text-[#333]'
-        >
-          {file ? (
-            <IoCheckmarkCircleOutline className='size-5 flex-shrink-0 text-green-500' />
-          ) : (
-            <LuPlus className='flex-shrink-0' />
-          )}{' '}
-          <p className='truncate ~xs/md:~w-40/80'>
-            {file?.name || 'Select a file'}
-          </p>
-        </label>
+    <div className='grid gap-[0.81rem] rounded-md border border-dashed border-[#D1D1D1] px-5 text-center text-[#333] ~pt-7/[2.31rem] ~pb-8/10'>
+      <label
+        htmlFor={name}
+        className='mx-auto block w-fit rounded-full bg-[#EAEAEA] p-2'
+      >
+        <LuUpload className='~size-4/5' />
+      </label>
 
-        {file && (
-          <button
-            type='button'
-            onClick={() => setValue(name, '')}
-            className='absolute inset-y-0 right-6 content-center'
-          >
-            <TbTrashXFilled className='size-5' />
-          </button>
-        )}
-      </div>
+      <p>Upload The {label} of your Insurance card</p>
+
+      {file && (
+        <p className='truncate text-sm font-medium text-orenda-green'>
+          {file?.name}
+        </p>
+      )}
+
+      <small className='text-[#626262] ~text-xs/sm'>
+        doc, .docx, .pdf, .pptx, .jpg, .jpeg, .png, .xlsx, .txt and .gif • 20MB
+        max
+      </small>
 
       {errors?.[name]?.message && (
         <p className='mt-2 text-sm text-red-500'>{errors?.[name].message}</p>
       )}
-
-      <small className='text-gray-500'>
-        Acceptable file formats: .doc, .docx, .pdf, .pptx, .jpg, .jpeg, .png,
-        .xlsx, .txt and .gif • 20MB max
-      </small>
 
       {/* Hidden File Input */}
       <input

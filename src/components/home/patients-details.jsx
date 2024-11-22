@@ -9,19 +9,45 @@ import { usStates } from '../../lib/definitions';
 const PatientsDetails = () => {
   return (
     <fieldset className='fieldset'>
-      <legend className='legend'>Patient's Details</legend>
+      <h2 className='legend'>Patient's Details</h2>
 
-      <div className='~space-y-6/8'>
-        <div className='grid gap-x-8 sm:grid-cols-2'>
+      <section className='fieldset-section'>
+        <h3 className='fieldset-section-heading'>Personal Information</h3>
+        <div className='!mt-4 grid gap-x-8 sm:grid-cols-2'>
           <Input label='First Name' name='first_name' required={true} />
           <Input label='Last Name' name='last_name' required={true} />
         </div>
 
+        <IMask
+          label='Telephone Number'
+          name='phone_number'
+          mask='(999) 999-9999'
+          type='tel'
+          required={true}
+        />
+
+        <Input
+          label='Email Address'
+          name='email'
+          type='email'
+          required={true}
+        />
+
+        <Input
+          label='Date of Birth (dd/mm/yr)'
+          name='date_of_birth'
+          required={true}
+          type='date'
+          sx={{
+            bgcolor: '#fff',
+          }}
+        />
+
         <div>
-          <h3 className='label'>
+          <h4 className='label'>
             How did you get to hear about Orenda Psychiatry?&nbsp;
             <span className='text-red-500'>*</span>
-          </h3>
+          </h4>
           <div className='grid grid-cols-2 gap-3'>
             <RadioBoxes
               name='referral_source'
@@ -36,24 +62,55 @@ const PatientsDetails = () => {
             />
           </div>
         </div>
+      </section>
 
-        <Input
-          label='Date of Birth (dd/mm/yyy)'
-          name='date_of_birth'
-          required={true}
-          type='date'
-          sx={{
-            bgcolor: '#fff',
-          }}
-        />
+      <section className='fieldset-section'>
+        <h3 className='fieldset-section-heading'>Address</h3>
+
+        <div className='!mt-4 grid ~gap-4/6'>
+          <Input label='Address 1' name='address_1' required={true} />
+          <Input
+            label='Address 2'
+            name='address_2'
+            placeholder='Apartment, suite, unit, building, floor, etc (optional)'
+          />
+          <div className='grid gap-y-5 ~gap-x-8/16 sm:grid-cols-2'>
+            <Input
+              label='City'
+              name='city'
+              required={true}
+              errorMsg='City is required'
+              size='small'
+            />
+            <Select
+              label='State'
+              name='state'
+              options={usStates}
+              required={true}
+              size='small'
+            />
+            <Input
+              label='Zip Code'
+              name='zip_code'
+              type='number'
+              required={true}
+              errorMsg='State is required'
+              size='small'
+            />
+          </div>
+        </div>
+      </section>
+
+      <section className='fieldset-section'>
+        <h3 className='fieldset-section-heading'>More Information</h3>
 
         <div>
-          <h3 className='label'>
+          <h4 className='label'>
             Is this appointment for a minor child?&nbsp;
             <span className='text-red-500'>*</span>
-          </h3>
-          <div className='grid grid-cols-2 items-stretch gap-3'>
-            <RadioBoxes
+          </h4>
+          <div className='flex items-center ~gap-5/7'>
+            <Radios
               name='minor_child_appointment'
               options={['Yes', 'No']}
               required={true}
@@ -62,7 +119,7 @@ const PatientsDetails = () => {
         </div>
 
         <div>
-          <h3 className='label flex items-center'>
+          <h4 className='label flex items-center'>
             Sex assigned at birth:&nbsp;<span className='text-red-500'>*</span>
             <Tooltip
               title='This information is necessary for medical reasons related to psychiatric medications and treatment planning. This information will remain confidential.'
@@ -75,8 +132,8 @@ const PatientsDetails = () => {
                 ?
               </button>
             </Tooltip>
-          </h3>
-          <div className='grid gap-3'>
+          </h4>
+          <div className='flex items-center ~gap-5/7'>
             <Radios
               name='sex_at_birth'
               options={['Male', 'Female']}
@@ -86,7 +143,7 @@ const PatientsDetails = () => {
         </div>
 
         <div>
-          <h3 className='label'>Gender (optional):</h3>
+          <h4 className='label'>Gender (Optional):</h4>
           <div className='grid gap-3'>
             <Radios
               name='gender'
@@ -106,64 +163,7 @@ const PatientsDetails = () => {
             />
           </div>
         </div>
-
-        <div>
-          <h3 className='label'>
-            Address&nbsp;<span className='text-red-500'>*</span>
-          </h3>
-          <div className='grid ~gap-4/6'>
-            <Input
-              label='Street Address'
-              name='street_address'
-              required={true}
-            />
-            <Input
-              label='Address - Line 2'
-              name='street-address_2'
-              placeholder='Apartment, suite, unit, building, floor, etc (optional)'
-            />
-            <div className='grid gap-x-5 gap-y-5 sm:grid-cols-3'>
-              <Input
-                label='City'
-                name='city'
-                required={true}
-                errorMsg='City is required'
-                size='small'
-              />
-              <Select
-                label='State'
-                name='state'
-                options={usStates}
-                required={true}
-                size='small'
-              />
-              <Input
-                label='Zip Code'
-                name='zip_code'
-                type='number'
-                required={true}
-                errorMsg='State is required'
-                size='small'
-              />
-            </div>
-          </div>
-        </div>
-
-        <Input
-          label='Email Address'
-          name='email'
-          type='email'
-          required={true}
-        />
-
-        <IMask
-          label='Telephone Number'
-          name='phone_number'
-          mask='(999) 999-9999'
-          type='tel'
-          required={true}
-        />
-      </div>
+      </section>
     </fieldset>
   );
 };

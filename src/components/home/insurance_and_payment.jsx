@@ -1,21 +1,21 @@
 import FileInput from '../ui/file-input';
 import IMask from '../ui/imask';
 import Input from '../ui/input';
-import RadioBoxes from '../ui/radio-boxes';
+import Radios from '../ui/radios';
 
 const InsuranceAndPayment = () => {
   return (
-    <fieldset className='fieldset'>
-      <legend className='legend'>Insurance & Payment Info</legend>
+    <fieldset className='fieldset ~text-sm/base'>
+      <h2 className='legend'>Insurance & Payment Info</h2>
 
-      <div className='~space-y-6/8'>
+      <section className='fieldset-section'>
         <div>
           <h3 className='label'>
             Insurance Carrier &nbsp;
             <span className='text-red-500'>*</span>
           </h3>
-          <div className='grid grid-cols-2 gap-3'>
-            <RadioBoxes
+          <div className='grid gap-3'>
+            <Radios
               name='insurance_carrier'
               options={[
                 'Aetna',
@@ -34,34 +34,30 @@ const InsuranceAndPayment = () => {
             />
           </div>
         </div>
+      </section>
+      <section className='fieldset-section'>
         <Input label='Member ID' name='member_ID' required={true} />
-        <div className='max-w-md'>
+        <div>
           <h3 className='label'>
-            Please upload a picture of your insurance card (FRONT).&nbsp;
+            Please upload a picture of your insurance card&nbsp;
             <span className='text-red-500'>*</span>
           </h3>
-          <p className='mb-2'>
-            <small>
-              If you do not have insurance please upload a screenshot of this or
-              some other file as you must upload something to proceed.
-            </small>
+          <p className='text-sm'>
+            If you do not have insurance please upload a screenshot of this or
+            some other file as you must upload something to proceed.
           </p>
-          <FileInput name='insurance_card_front' required={true} />
         </div>
-        <div className='max-w-md'>
-          <h3 className='label'>
-            Please upload a picture of your insurance card (BACK)&nbsp;
-            <span className='text-red-500'>*</span>
-          </h3>
-          <p className='mb-2'>
-            <small>
-              If you do not have insurance please upload a screenshot of this or
-              some other file as you must upload something to proceed.
-            </small>
-          </p>
-          <FileInput name='insurance_card_back' required={true} />
+        <div className='grid ~gap-4/6'>
+          <FileInput
+            label='Front'
+            name='insurance_card_front'
+            required={true}
+          />
+          <FileInput label='Back' name='insurance_card_back' required={true} />
         </div>
-
+      </section>
+      <section className='fieldset-section'>
+        <h3 className='fieldset-section-heading'>Credit Card Details</h3>
         <p className='font-medium'>
           Your copay/deductible is due at the time of your appointment. We
           require you to keep a credit card on file. You may use a health
@@ -100,7 +96,7 @@ const InsuranceAndPayment = () => {
             https://www.orendapsych.com/
           </a>
         </p>
-      </div>
+      </section>
     </fieldset>
   );
 };

@@ -13,14 +13,20 @@ const Checkboxes = ({
   minLength,
   validations,
 }) => {
-  const { register } = useFormContext();
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
 
   return (
     <>
       {options.map((option) => (
-        <div className={clsx('flex items-center gap-2 text-sm', className)}>
+        <div
+          key={name + option}
+          className={clsx('flex items-center gap-2 text-sm', className)}
+        >
           <input
-            id={option}
+            id={name + option}
             className={clsx('peer', size)}
             type='checkbox'
             value={option}
@@ -35,9 +41,13 @@ const Checkboxes = ({
               validate: validations,
             })}
           />
-          <label htmlFor={option}>{option}</label>
+          <label htmlFor={name + option}>{option}</label>
         </div>
       ))}
+
+      {errors?.[name]?.message && (
+        <p className='px-3 text-xs !mt-2 text-red-500'>{errors?.[name]?.message}</p>
+      )}
     </>
   );
 };
