@@ -24,7 +24,7 @@ const Home = () => {
     <div className='padding-inline py-16'>
       <div className='mx-auto max-w-[59.4rem]'>
         {/* Heading */}
-        <h1 className='text-center font-heading font-bold ~text-2xl/4xl'>
+        <h1 className='text-center font-heading font-bold ~text-3xl/[2.625rem]'>
           Orenda Intake Form
         </h1>
 

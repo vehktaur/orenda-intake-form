@@ -12,7 +12,7 @@ const PatientsDetails = () => {
 
       <section className='fieldset-section'>
         <h3 className='fieldset-section-heading'>Personal Information</h3>
-        <div className='!mt-4 grid gap-x-8 sm:grid-cols-2'>
+        <div className='!mt-4 grid gap-y-6 gap-x-8 sm:grid-cols-2'>
           <Input label='First Name' name='first_name' required={true} />
           <Input label='Last Name' name='last_name' required={true} />
         </div>
