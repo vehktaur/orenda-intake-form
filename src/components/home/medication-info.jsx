@@ -32,6 +32,7 @@ const MedicationInfo = () => {
             name='prescribing_MD'
             multiline
             rows={2}
+            required={false}
             variant='outlined'
           />
         </div>

@@ -168,13 +168,14 @@ const LifestyleAndHealth = () => {
 
         <div>
           <h3 className='label'>
-            What else would you like for your provider to know??
+            What else would you like for your provider to know?
           </h3>
           <Input
             hiddenLabel
             name='extra_info_for_provider'
             multiline
             rows={2}
+            required={false}
             variant='outlined'
           />
         </div>

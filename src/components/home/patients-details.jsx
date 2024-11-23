@@ -52,6 +52,7 @@ const PatientsDetails = () => {
             label='Address 2'
             name='address_2'
             placeholder='Apartment, suite, unit, building, floor, etc (optional)'
+            required={false}
           />
           <div className='grid gap-y-5 ~gap-x-8/16 sm:grid-cols-2'>
             <Input
