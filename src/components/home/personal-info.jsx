@@ -10,9 +10,14 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from '../ui/tooltip';
+} from '@/components/ui/tooltip';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover';
 
-const PersonalInfo = () => {
+export default function PersonalInfo() {
   const { watch } = useFormContext();
   const isMinorChildAppointment = watch('minor_child_appointment') === 'Yes';
 
@@ -114,20 +119,8 @@ const PersonalInfo = () => {
         <h4 className='label flex items-center'>
           Sex assigned at birth:&nbsp;
           <span className='text-orenda-purple'>*</span>
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger type='button' className='ml-2 grid size-4 place-items-center rounded-full border-2 border-zinc-700 text-xs leading-none'>
-                ?
-              </TooltipTrigger>
-              <TooltipContent>
-                <p className='max-w-[40ch]'>
-                  This information is necessary for medical reasons related to
-                  psychiatric medications and treatment planning. This
-                  information will remain confidential.
-                </p>
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
+          <DesktopTooltip />
+          <MobileTooltip />
         </h4>
         <div className='flex items-center ~gap-5/7'>
           <Radios name='sex_at_birth' options={['Male', 'Female']} />
@@ -138,5 +131,42 @@ const PersonalInfo = () => {
       <Input label='Gender (Optional)' name='city' required={false} />
     </section>
   );
+}
+
+const DesktopTooltip = () => {
+  return (
+    <TooltipProvider>
+      <Tooltip>
+        <TooltipTrigger
+          type='button'
+          className='ml-2 hidden size-4 place-items-center rounded-full border-2 border-zinc-700 text-xs leading-none md:grid'
+        >
+          ?
+        </TooltipTrigger>
+        <TooltipContent>
+          <p className='max-w-[40ch]'>
+            This information is necessary for medical reasons related to
+            psychiatric medications and treatment planning. This information
+            will remain confidential.
+          </p>
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
+  );
 };
-export default PersonalInfo;
+
+const MobileTooltip = () => (
+  <Popover>
+    <PopoverTrigger
+      type='button'
+      className='ml-2 grid size-4 place-items-center rounded-full border-2 border-zinc-700 text-xs leading-none md:hidden'
+    >
+      ?
+    </PopoverTrigger>
+    <PopoverContent className='max-w-[40ch] bg-black/90 p-2 text-xs text-white'>
+      This information is necessary for medical reasons related to psychiatric
+      medications and treatment planning. This information will remain
+      confidential.
+    </PopoverContent>
+  </Popover>
+);
