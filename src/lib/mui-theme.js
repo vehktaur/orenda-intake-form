@@ -13,16 +13,16 @@ const theme = createTheme({
     MuiFormLabel: {
       styleOverrides: {
         asterisk: {
-          color: 'red',
+          color: '#2E0086',
         },
         root: {
           color: '#000',
           zIndex: 1,
           backgroundColor: 'inherit',
           fontWeight: 500,
-        },
-        error: {
-          color: '#000',
+          '&.Mui-error': {
+            color: '#000',
+          },
         },
       },
     },
@@ -56,6 +56,26 @@ const theme = createTheme({
           '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
             borderColor: '#333',
           },
+        },
+      },
+    },
+    MuiSelect: {
+      variants: {
+        List: {
+          styleOverrides: {
+            scrollbarWidth: 'none',
+          },
+        },
+      },
+      style: {
+        scrollbarWidth: 'none',
+      },
+      styleOverrides: {
+        root: {
+          scrollbarWidth: 'none',
+        },
+        list: {
+          scrollbarWidth: 'none',
         },
       },
     },

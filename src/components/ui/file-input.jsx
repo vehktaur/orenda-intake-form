@@ -5,8 +5,9 @@ const FileInput = ({
   label,
   name,
   disabled,
-  required,
+  required = true,
   errorMsg,
+  accept = 'image/*,application/pdf',
   validations,
 }) => {
   const {
@@ -23,10 +24,10 @@ const FileInput = ({
         htmlFor={name}
         className='mx-auto block w-fit rounded-full bg-[#EAEAEA] p-2'
       >
-        <LuUpload className='~size-4/5' />
+        <LuUpload className='~size-5/6' />
       </label>
 
-      <p>Upload The {label} of your Insurance card</p>
+      <p className='~text-sm/base'>Upload The {label} of your Insurance card</p>
 
       {file && (
         <p className='truncate text-sm font-medium text-orenda-green'>
@@ -35,12 +36,11 @@ const FileInput = ({
       )}
 
       <small className='text-[#626262] ~text-xs/sm'>
-        doc, .docx, .pdf, .pptx, .jpg, .jpeg, .png, .xlsx, .txt and .gif • 20MB
-        max
+        Image or Pdf Only • 5MB max
       </small>
 
       {errors?.[name]?.message && (
-        <p className='mt-2 text-sm text-red-500'>{errors?.[name].message}</p>
+        <p className='error'>{errors?.[name].message}</p>
       )}
 
       {/* Hidden File Input */}
@@ -54,8 +54,21 @@ const FileInput = ({
             value: required,
             message: errorMsg || 'This field is required',
           },
-          validate: validations,
+          validate: {
+            empty: (value) => {
+              if (required) return value.length > 0 || 'This field is required';
+            },
+            acceptedFormats: (files) => {
+              if (accept)
+                return (
+                  accept.split(',').includes(files[0]?.type) ||
+                  'Invalid file format'
+                );
+            },
+            ...validations,
+          },
         })}
+        accept={accept}
       />
     </div>
   );

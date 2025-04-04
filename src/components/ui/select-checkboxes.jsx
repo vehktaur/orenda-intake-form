@@ -17,10 +17,10 @@ const SelectCheckboxes = ({
     <>
       {options.map((option) => {
         return (
-          <div
+          <label
             key={name + option}
             className={clsx(
-              'flex items-center rounded-lg border border-[#C9C9C9] px-4 ~gap-2/4 ~py-[0.9rem]/4 hover:border-[#ecf5eb] hover:bg-[#ecf5eb]',
+              'flex cursor-pointer items-center rounded-lg border border-[#C9C9C9] px-4 ~gap-2/4 ~py-[0.9rem]/4 hover:border-[#ecf5eb] hover:bg-[#ecf5eb]',
               className,
             )}
           >
@@ -37,15 +37,13 @@ const SelectCheckboxes = ({
                 disabled: disabled,
               })}
             />
-            <label className='w-full cursor-pointer' htmlFor={name + option}>
-              {option}
-            </label>
-          </div>
+            <span>{option}</span>
+          </label>
         );
       })}
 
       {errors?.[name]?.message && (
-        <p className='px-3 text-xs text-red-500'>{errors?.[name]?.message}</p>
+        <p className='error mt-0 px-3'>{errors?.[name]?.message}</p>
       )}
     </>
   );
