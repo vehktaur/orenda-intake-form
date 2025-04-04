@@ -37,7 +37,7 @@ const DatePicker = ({
             })}
             monthPlaceholder='mm'
             dayPlaceholder='dd'
-            yearPlaceholder='yr'
+            yearPlaceholder='yyyy'
             format='MM/dd/yyyy'
           />
 
