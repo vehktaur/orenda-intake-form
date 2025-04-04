@@ -13,3 +13,9 @@ export const getItem = (key) => {
   return undefined;
 };
 export const removeItem = (key) => localStorage.removeItem(key);
+
+export const isNumeric = (value) => {
+  if (typeof value === 'number') return !isNaN(value);
+  if (typeof value === 'string') return /^\d+$/.test(value.trim());
+  return false;
+};

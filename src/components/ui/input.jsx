@@ -11,7 +11,6 @@ const Input = ({
   errorMsg = 'This field is required',
   placeholder,
   pattern,
-  onChange,
   minLength,
   validations,
   ...inputProps
@@ -32,14 +31,6 @@ const Input = ({
       render={({ field, fieldState: { error } }) => (
         <TextField
           {...field}
-          onChange={(e) => {
-            if (onChange) {
-              const block = onChange?.(e);
-              if (block) return;
-            }
-
-            field.onChange(e);
-          }}
           required={required}
           type={type}
           helperText={error ? error.message : null}

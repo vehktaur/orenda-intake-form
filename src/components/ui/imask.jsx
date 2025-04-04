@@ -16,6 +16,9 @@ const IMask = ({
   pattern,
   minLength,
   validations,
+  maskPlaceholder,
+  inputProps,
+  ...props
 }) => {
   return (
     <Controller
@@ -31,7 +34,7 @@ const IMask = ({
         validate: validations,
       }}
       render={({ field: { onChange, value }, fieldState: { error } }) => (
-        <InputMask mask={mask} onChange={onChange} value={value}>
+        <InputMask mask={mask} onChange={onChange} value={value} {...props}>
           {(inputProps) => (
             <TextField
               {...inputProps}
