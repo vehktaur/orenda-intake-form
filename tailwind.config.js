@@ -23,7 +23,7 @@ export default {
   			],
   			heading: [
   				'Ogg Text TRIAL',
-  				'serif'
+  				
   			],
   			'dm-sans': [
   				'DM Sans"',

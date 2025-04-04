@@ -1,11 +1,16 @@
 import { useFormContext } from 'react-hook-form';
-import Tooltip from '@mui/material/Tooltip';
 import IMask from '@/components/ui/imask';
 import Input from '@/components/ui/input';
 import Radios from '@/components/ui/radios';
 import AgreementCheckbox from '@/components/ui/agreement-checkbox';
 import DatePicker from '@/components/ui/date-picker';
 import 'react-date-picker/dist/DatePicker.css';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '../ui/tooltip';
 
 const PersonalInfo = () => {
   const { watch } = useFormContext();
@@ -61,21 +66,21 @@ const PersonalInfo = () => {
 
               <p className='text-sm text-gray-700'>
                 I understand and give permission for my child to be treated by
-                an Orenda Psychiatry provider. As part of my child&apos;s treatment,
-                their provider may prescribe medication as needed for their
-                condition. I understand the provider may need to speak with me
-                to discuss medication options and changes on an ongoing basis. I
-                understand that I will be informed immediately about situations
-                that could endanger my child. I know that this decision to
-                breach confidentiality in these circumstances is up to the
-                clinician’s professional judgment and is in the best interest of
-                my child. I will refrain from requesting detailed information
-                about individual therapy sessions with my child. I understand
-                that I will be provided with periodic updates about general
-                progress, and/or may be asked to participate in therapy sessions
-                as needed. I understand my provider may require one-on-one
-                sessions with my child without any parent present and the
-                provider may request to speak to a parent without the child
+                an Orenda Psychiatry provider. As part of my child&apos;s
+                treatment, their provider may prescribe medication as needed for
+                their condition. I understand the provider may need to speak
+                with me to discuss medication options and changes on an ongoing
+                basis. I understand that I will be informed immediately about
+                situations that could endanger my child. I know that this
+                decision to breach confidentiality in these circumstances is up
+                to the clinician’s professional judgment and is in the best
+                interest of my child. I will refrain from requesting detailed
+                information about individual therapy sessions with my child. I
+                understand that I will be provided with periodic updates about
+                general progress, and/or may be asked to participate in therapy
+                sessions as needed. I understand my provider may require
+                one-on-one sessions with my child without any parent present and
+                the provider may request to speak to a parent without the child
                 present. <br />
                 <br />
                 <strong className='font-medium'>
@@ -109,17 +114,20 @@ const PersonalInfo = () => {
         <h4 className='label flex items-center'>
           Sex assigned at birth:&nbsp;
           <span className='text-orenda-purple'>*</span>
-          <Tooltip
-            title='This information is necessary for medical reasons related to psychiatric medications and treatment planning. This information will remain confidential.'
-            placement='top'
-          >
-            <button
-              type='button'
-              className='ml-2 size-5 rounded-full bg-gray-400 text-[0.75em] leading-none text-white'
-            >
-              ?
-            </button>
-          </Tooltip>
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger type='button' className='ml-2 grid size-4 place-items-center rounded-full border-2 border-zinc-700 text-xs leading-none'>
+                ?
+              </TooltipTrigger>
+              <TooltipContent>
+                <p className='max-w-[40ch]'>
+                  This information is necessary for medical reasons related to
+                  psychiatric medications and treatment planning. This
+                  information will remain confidential.
+                </p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
         </h4>
         <div className='flex items-center ~gap-5/7'>
           <Radios name='sex_at_birth' options={['Male', 'Female']} />
