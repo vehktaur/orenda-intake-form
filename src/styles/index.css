@@ -83,6 +83,7 @@ body {
   /* ...for Firefox */
   input[type='number'] {
     -moz-appearance: textfield;
+    appearance: textfield;
   }
   :root {
     --radius: 0.5rem;

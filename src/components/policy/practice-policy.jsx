@@ -1,3 +1,4 @@
+import AgreementCheckbox from '../ui/agreement-checkbox';
 import Signature from './signature';
 
 const PracticePolicy = () => {
@@ -161,11 +162,11 @@ const PracticePolicy = () => {
             and ethical reasons, we must consider the professional relationship
             discontinued.
           </p>
-          <p>
+          {/* <p>
             BY SIGNING BELOW, I CERTIFY THAT I HAVE READ, UNDERSTAND AND AGREE
             TO THE TERMS AND CONDITIONS CONTAINED IN THIS DOCUMENT.
           </p>
-          <Signature />
+          <Signature name='signature_3' /> */}
         </article>
         <article className='space-y-4'>
           <h3 className='font-medium'>
@@ -432,13 +433,13 @@ const PracticePolicy = () => {
             </li>
           </ol>
 
-          <p>
+          {/* <p>
             BY SIGNING BELOW I AM CERTIFY THAT I HAVE READ, UNDERSTAND AND AGREE
             TO THE PROVISION OF PSYCHIATRIC SERVICES BY ORENDA PSYCHIATRY AND
             ITS PROVIDERS.
           </p>
 
-          <Signature />
+          <Signature name='signature_4' /> */}
         </article>
 
         <article className='space-y-4'>
@@ -459,7 +460,16 @@ const PracticePolicy = () => {
             information on prescribed medications, dosages, and refill history.
           </p>
 
-          <Signature />
+          {/* <Signature name='signature_5' /> */}
+
+          <hr className='my-8 block'/>
+
+          <strong className='font-medium'>
+            BY CLICKING 'I AGREE', I ACKNOWLEDGE THAT I HAVE READ, UNDERSTOOD
+            AND AGREE TO ALL THE TERMS WRITTEN ABOVE
+          </strong>
+
+          <AgreementCheckbox label='I agree' name='policy_agreement' />
         </article>
       </div>
     </section>

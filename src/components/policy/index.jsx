@@ -52,7 +52,7 @@ const PolicyDialog = ({ children, ...props }) => {
           </div>
 
           <AlertDialogFooter className='mt-10'>
-            <AlertDialogCancel>Close</AlertDialogCancel>
+            <AlertDialogCancel>Go to Submit</AlertDialogCancel>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>

@@ -52,3 +52,5 @@ export const usStates = [
   'Wisconsin',
   'Wyoming',
 ];
+
+export const radioCheckboxes = ['policy_agreement'];

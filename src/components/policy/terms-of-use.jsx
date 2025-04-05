@@ -32,12 +32,12 @@ const Terms = () => {
           </li>
         </ol>
 
-        <p className='my-4'>
+        {/* <p className='my-4'>
           BY SIGNING BELOW I CERTIFY THAT I HAVE READ, UNDERSTAND AND AGREE TO
           THE ITEMS CONTAINED IN THIS DOCUMENT.
         </p>
 
-        <Signature />
+        <Signature name='signature_1' /> */}
       </article>
 
       {/* NOTICE OF PRIVACY PRACTICES */}
@@ -340,13 +340,13 @@ const Terms = () => {
           acknowledging that you have received a copy of HIPAA Notice of Privacy
           Practices.
         </p>
-        <p className='mb-4'>
+        {/* <p className='mb-4'>
           BY SIGNING BELOW I AM CERTIFY THAT I HAVE READ, UNDERSTAND AND AGREE
           TO THE PROVISION OF PSYCHIATRIC SERVICES BY ORENDA PSYCHIATRY AND ITS
           PROVIDERS.
         </p>
 
-        <Signature />
+        <Signature name='signature_2' /> */}
       </article>
     </section>
   );

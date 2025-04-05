@@ -19,7 +19,7 @@ import {
 
 export default function PersonalInfo() {
   const { watch } = useFormContext();
-  const isMinorChildAppointment = watch('minor_child_appointment') === 'Yes';
+  const isMinorChildAppointment = watch('for_minor_child') === 'Yes';
 
   return (
     <section className='fieldset-section'>
@@ -40,7 +40,7 @@ export default function PersonalInfo() {
       <div className='grid gap-x-8 gap-y-6 sm:grid-cols-2'>
         <IMask
           label='Phone Number'
-          name='phone_number'
+          name='phone'
           mask='(999) 999-9999'
           type='tel'
         />
@@ -55,7 +55,7 @@ export default function PersonalInfo() {
           <span className='text-orenda-purple'>*</span>
         </h4>
         <div className='flex items-center ~gap-5/7'>
-          <Radios name='minor_child_appointment' options={['Yes', 'No']} />
+          <Radios name='for_minor_child' options={['Yes', 'No']} />
         </div>
 
         {/* Conditional Acknowledgment Message & Checkbox */}
@@ -89,7 +89,7 @@ export default function PersonalInfo() {
                 present. <br />
                 <br />
                 <strong className='font-medium'>
-                  BY SIGNING BELOW, I ACKNOWLEDGE THAT I HAVE REVIEWED THE
+                  BY CLICKING 'I AGREE', I ACKNOWLEDGE THAT I HAVE REVIEWED THE
                   POLICIES DESCRIBED ABOVE AND UNDERSTAND THE LIMITS TO
                   CONFIDENTIALITY.
                 </strong>
@@ -97,7 +97,7 @@ export default function PersonalInfo() {
 
               <AgreementCheckbox
                 label='I agree'
-                name='minor_child_agreement'
+                name='guardian_consent'
                 className='mt-2'
                 errorMsg='This field is required'
               />
@@ -107,7 +107,7 @@ export default function PersonalInfo() {
               <Input label='Your Name (Guardian)' name='guardian_name' />
               <Input
                 label='Relationship to child'
-                name='relationship_to_child'
+                name='relationship_with_child'
               />
             </div>
           </>
@@ -123,12 +123,12 @@ export default function PersonalInfo() {
           <MobileTooltip />
         </h4>
         <div className='flex items-center ~gap-5/7'>
-          <Radios name='sex_at_birth' options={['Male', 'Female']} />
+          <Radios name='sex_assigned_at_birth' options={['Male', 'Female']} />
         </div>
       </div>
 
       {/* Gender (Optional) */}
-      <Input label='Gender (Optional)' name='city' required={false} />
+      <Input label='Gender (Optional)' name='gender' required={false} />
     </section>
   );
 }

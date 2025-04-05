@@ -6,7 +6,7 @@ const InsuranceDetails = () => {
     <section className='fieldset-section'>
       <Input
         label='Insurance Member ID'
-        name='insurance_member_id'
+        name='insurance_id'
         sx={{ marginBlockStart: 1 }}
       />
 

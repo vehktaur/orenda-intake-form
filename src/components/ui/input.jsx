@@ -19,7 +19,7 @@ const Input = ({
     <Controller
       name={name}
       rules={{
-        disabled: disabled,
+        disabled,
         required: {
           value: required,
           message: errorMsg,

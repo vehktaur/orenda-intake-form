@@ -6,11 +6,11 @@ import AgreementCheckbox from '@/components/ui/agreement-checkbox';
 
 const MentalHealth = () => {
   const { watch } = useFormContext();
-  const isHearingImpairments =
-    watch('hearing_impairments?') ===
+  const hasHearingImpairment =
+    watch('hearing_impairment') ===
     'Yes, I have a hearing impairment that does require accommodations.';
 
-  const healthType = watch('mental_health_type');
+  const healthType = watch('mental_health_care_type');
   const needsTherapy = ['Both', 'Therapy'].includes(healthType);
 
   return (
@@ -38,7 +38,7 @@ const MentalHealth = () => {
           </h3>
           <div className='grid grid-cols-2 gap-3'>
             <Radios
-              name='mental_health_type'
+              name='mental_health_care_type'
               options={[
                 `Psychiatric Services 
               (Medication Management)`,
@@ -60,7 +60,7 @@ const MentalHealth = () => {
 
                 <div className='mt-5 grid grid-cols-2'>
                   <Radios
-                    name='unavailable_therapy_agreement'
+                    name='therapy_availability'
                     errorMsg='This field is required'
                     options={[
                       'I understand',
@@ -83,7 +83,7 @@ const MentalHealth = () => {
           <span className='text-orenda-purple'>*</span>
         </h3>
         <div className='flex items-center ~gap-5/7'>
-          <Radios name='suicidal_thoughts?' options={['Yes', 'No']} />
+          <Radios name='suicidal_thoughts' options={['Yes', 'No']} />
         </div>
       </div>
 
@@ -95,7 +95,7 @@ const MentalHealth = () => {
         </h3>
         <div className='grid grid-cols-2 gap-3'>
           <Radios
-            name='has_hearing_impairments'
+            name='hearing_impairment'
             options={[
               'No, I do not have any hearing impairments.',
               'Yes, I have a hearing impairment that does require accommodations.',
@@ -104,7 +104,7 @@ const MentalHealth = () => {
           />
         </div>
 
-        {isHearingImpairments && (
+        {hasHearingImpairment && (
           <div className='mt-4 rounded border-l-4 border-gray-500 bg-gray-100 p-3'>
             <p className='text-sm text-gray-700'>
               If you utilize an interpreter service due to a hearing impairment,
@@ -118,7 +118,7 @@ const MentalHealth = () => {
             </p>
             <AgreementCheckbox
               label='I understand'
-              name='hearing_impairment_agreement'
+              name='interpreter_guidelines'
               className='mt-2'
               errorMsg='This field is required'
             />
@@ -134,7 +134,7 @@ const MentalHealth = () => {
         </h3>
         <Input
           hiddenLabel
-          name='emergency_contact'
+          name='emergency_contact_info'
           required={true}
           variant='outlined'
         />
@@ -142,7 +142,7 @@ const MentalHealth = () => {
 
       <IMask
         label='Emergency Contact Phone Number'
-        name='emergency_contact_number'
+        name='emergency_contact_phone'
         type='tel'
         mask='(999) 999-9999'
         required={true}
