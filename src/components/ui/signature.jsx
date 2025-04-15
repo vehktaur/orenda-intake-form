@@ -1,22 +1,35 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Controller } from 'react-hook-form';
+
 import { cn } from '@/lib/utils';
 import useSignature from '@/hooks/useSignature';
 
-const CANVAS_X = 1200; // Internal canvas width
-const CANVAS_Y = 320; // Internal canvas height
-const MAX_LENGTH = 29;
+const CANVAS_X = 1200; // Canvas width in pixels
+const CANVAS_Y = 320; // Canvas height in pixels
+const MAX_LENGTH = 29; // Max characters for signature text
 
+/**
+ * @author vehktaur
+ * @component Comp
+ * @description Component that renders a canvas-based text signature field.
+ *
+ * @param {Object} props
+ * @param {string} props.className - Optional wrapper class
+ * @param {Function} props.onChange - Callback to return base64 signature image
+ */
 const Comp = ({ className, onChange }) => {
   const { signature, setSignature } = useSignature();
+
   const [text, setText] = useState(undefined);
   const [isClicked, setIsClicked] = useState(false);
   const [focused, setFocused] = useState(false);
+
   const canvasRef = useRef(null);
 
   /**
-   * Draws the text on the canvas and updates global signature state
-   * @param {string} text - Signature text to draw
+   * Draw signature text on canvas and update global signature state
+   *
+   * @param {string} text - Signature text
    */
   const drawOnCanvas = (text) => {
     const canvas = canvasRef.current;
@@ -28,7 +41,6 @@ const Comp = ({ className, onChange }) => {
     canvas.width = CANVAS_X * ratio;
     canvas.height = CANVAS_Y * ratio;
     ctx.scale(ratio, ratio);
-
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     if (text) {
@@ -44,9 +56,7 @@ const Comp = ({ className, onChange }) => {
     onChange(base64);
   };
 
-  /**
-   * Triggers drawing of the saved signature text
-   */
+  /** Redraw stored signature text on canvas */
   const sign = () => {
     if (signature.text) {
       drawOnCanvas(signature.text);
@@ -54,20 +64,18 @@ const Comp = ({ className, onChange }) => {
     }
   };
 
-  /**
-   * Clears the global and local signature
-   */
+  /** Clears the signature */
   const clear = () => {
     setSignature({ text: '', base64: '' });
   };
 
-  // Re-draw when local text changes
   useEffect(() => {
-    if (typeof text !== 'undefined') drawOnCanvas(text);
+    if (typeof text !== 'undefined') {
+      drawOnCanvas(text);
+    }
   }, [text]);
 
   useEffect(() => {
-    // Reset when signature is cleared globally
     if (!signature.text && text) {
       setText('');
     }
@@ -83,32 +91,27 @@ const Comp = ({ className, onChange }) => {
 
   return (
     <div className={cn(className)}>
-      {/* Input to type signature text */}
+      {/* Text input for signature */}
       {(!signature.text || typeof text !== 'undefined') && (
         <input
           type='text'
           value={text}
-          onChange={(event) => {
-            const value = event.target.value;
+          onChange={(e) => {
+            const value = e.target.value;
             if (value.length > MAX_LENGTH) return;
-
             setText(value);
           }}
           className='mb-2 mt-4 block w-full max-w-sm rounded bg-white/50 px-4 py-2 outline outline-1 outline-zinc-200 transition-all duration-300 ~text-sm/base focus:outline-zinc-500'
           placeholder='Type your signature here'
-          onFocus={() => {
-            setFocused(true);
-          }}
+          onFocus={() => setFocused(true)}
           onBlur={() => {
-            if (text === '') {
-              setText(undefined);
-            }
+            if (text === '') setText(undefined);
             setFocused(false);
           }}
         />
       )}
 
-      {/* Canvas element to render signature */}
+      {/* Canvas preview */}
       <div className='relative rounded-xl'>
         <canvas
           ref={canvasRef}
@@ -117,7 +120,7 @@ const Comp = ({ className, onChange }) => {
           className='my-5 w-full rounded-[inherit] border border-dashed border-zinc-500'
         />
 
-        {/* Overlay for 'Click to Sign' */}
+        {/* Click to sign overlay */}
         {signature.text && !text && !isClicked && !focused && (
           <button
             type='button'
@@ -147,13 +150,16 @@ const Comp = ({ className, onChange }) => {
 /**
  * @author vehktaur
  * @component SignatureMaker
- * @description Renders a signature input (via typing) onto a canvas and returns the base64 image.
+ *
+ * @description A typed signature input controlled by React Hook Form. Renders a canvas preview and outputs
+ * base64-encoded image of the signature.
  *
  * @param {Object} props
- * @param {string} props.className - Additional CSS classes
- * @param {string} props.name - Field name for RHF Controller
- * @param {boolean} props.disabled - Disable or enable input
- * @param {string} props.errorMsg - Custom input error message
+ * @param {string} props.name - RHF field name
+ * @param {boolean} [props.disabled=false] - Disable input
+ * @param {boolean} [props.required=true] - Set field as required
+ * @param {string} [props.errorMsg] - Error message for validation
+ * @param {string} [props.className] - Optional wrapper class
  */
 export default function SignatureMaker({
   name,
