@@ -15,14 +15,25 @@ const CreditCardDetails = () => {
         label='Credit Card Number'
         name='credit_card_number'
         mask={'999999999999999'}
+        maskChar=''
       />
       <IMask
         label='Credit Card Expiration (mm/yy)'
         name='credit_card_exp_date'
         mask='99/99'
       />
-      <IMask label='CVV / Security Code' name='credit_card_csv' mask={'9999'} />
-      <IMask label='Billing Zip Code' name='billing_zip_code' mask={'99999'} />
+      <IMask
+        label='CVV / Security Code'
+        name='credit_card_csv'
+        mask={'9999'}
+        maskChar=''
+      />
+      <IMask
+        label='Billing Zip Code'
+        name='billing_zip_code'
+        mask={'99999'}
+        maskChar=''
+      />
     </section>
   );
 };

@@ -66,6 +66,9 @@ const MentalHealth = () => {
                       'I understand',
                       'I need to see someone immediately',
                     ]}
+                    registerOptions={{
+                      shouldUnregister: true,
+                    }}
                   />
                 </div>
               </div>
@@ -121,6 +124,9 @@ const MentalHealth = () => {
               name='interpreter_guidelines'
               className='mt-2'
               errorMsg='This field is required'
+              registerOptions={{
+                shouldUnregister: true,
+              }}
             />
           </div>
         )}

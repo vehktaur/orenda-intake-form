@@ -17,9 +17,9 @@ export default {
         'orenda-green': '#127801',
       },
       fontFamily: {
-        'open-sans': ['Open Sans"', 'sans-serif'],
+        'open-sans': ['Open Sans', 'sans-serif'],
         heading: ['Ogg Text TRIAL', 'serif'],
-        'dm-sans': ['DM Sans"', 'sans-serif'],
+        'dm-sans': ['DM Sans', 'sans-serif'],
       },
       screens: {
         xs: '20rem',

@@ -54,3 +54,46 @@ export const usStates = [
 ];
 
 export const radioCheckboxes = ['policy_agreement'];
+
+export const base64Strings = [
+  'guardian_consent',
+  'signature_1',
+  'signature_2',
+  'signature_3',
+  'signature_4',
+  'signature_5',
+];
+
+export const initialValues = {
+  first_name: '',
+  last_name: '',
+  date_of_birth: '',
+  phone: '',
+  email: '',
+  for_minor_child: '',
+  guardian_consent: '',
+  relationship_with_child: '',
+  sex_assigned_at_birth: '',
+  gender: '',
+  address_one: '',
+  address_two: '',
+  city: '',
+  state: '',
+  zip_code: '',
+  reason_for_visit: '',
+  mental_health_care_type: '',
+  therapy_availability: '',
+  suicidal_thoughts: '',
+  hearing_impairment: '',
+  interpreter_guidelines: '',
+  emergency_contact_info: '',
+  emergency_contact_phone: '',
+  insurance_id: '',
+  insurance_card_front: '',
+  insurance_card_back: '',
+  credit_card_number: '',
+  credit_card_exp_date: '',
+  credit_card_csv: '',
+  billing_zip_code: '',
+  policy_agreement: '',
+};

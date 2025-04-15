@@ -1,7 +1,13 @@
 import { useFormContext } from 'react-hook-form';
 import { cn } from '../../lib/utils';
 
-const AgreementCheckbox = ({ label, name, errorMsg, className }) => {
+const AgreementCheckbox = ({
+  label,
+  name,
+  errorMsg,
+  className,
+  registerOptions,
+}) => {
   const {
     register,
     formState: { errors },
@@ -20,6 +26,7 @@ const AgreementCheckbox = ({ label, name, errorMsg, className }) => {
           value={label}
           {...register(name, {
             required: errorMsg,
+            ...registerOptions,
           })}
         />
         {label}

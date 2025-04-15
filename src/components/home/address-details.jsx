@@ -1,6 +1,7 @@
 import Input from '@/components/ui/input';
 import Select from '@/components/ui/select';
 import { usStates } from '@/lib/definitions';
+import IMask from '../ui/imask';
 
 /* Address Section, Tel & Email */
 const AddressDetails = () => {
@@ -22,12 +23,13 @@ const AddressDetails = () => {
             size='small'
           />
           <Select label='State' name='state' options={usStates} size='small' />
-          <Input
+          <IMask
             label='Zip Code'
             name='zip_code'
-            type='number'
             errorMsg='State is required'
             size='small'
+            mask={'9999999'}
+            maskChar=''
           />
         </div>
       </div>

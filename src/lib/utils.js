@@ -1,6 +1,6 @@
 import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
-import { radioCheckboxes } from './definitions';
+import { base64Strings, radioCheckboxes } from './definitions';
 
 export const cn = (...inputs) => twMerge(clsx(inputs));
 
@@ -21,6 +21,38 @@ export const isNumeric = (value) => {
   return false;
 };
 
+/**
+ * Converts a base64 data URL to a File object.
+ * @param {string} base64Data - The base64 data URL.
+ * @param {string} fileName - The name of the file to create (e.g., 'signature.png').
+ * @returns {File|Blob} - A File object (or Blob fallback) that can be uploaded or saved.
+ */
+export const base64ToFile = (base64Data, fileName) => {
+  if (!base64Data.includes(',')) {
+    return '';
+  }
+
+  const [header, data] = base64Data.split(',');
+  const mimeMatch = header.match(/:(.*?);/);
+  const mime = mimeMatch ? mimeMatch[1] : 'application/octet-stream';
+
+  const byteString = atob(data);
+  const arrayBuffer = new ArrayBuffer(byteString.length);
+  const uint8Array = new Uint8Array(arrayBuffer);
+
+  for (let i = 0; i < byteString.length; i++) {
+    uint8Array[i] = byteString.charCodeAt(i);
+  }
+
+  try {
+    return new File([uint8Array], fileName, { type: mime });
+  } catch {
+    const blob = new Blob([uint8Array], { type: mime });
+    blob.name = fileName;
+    return blob;
+  }
+};
+
 export const convertFileListsToFiles = (obj) => {
   Object.entries(obj).forEach(([key, value]) => {
     if (value instanceof FileList && value.length === 1) {
@@ -30,13 +62,13 @@ export const convertFileListsToFiles = (obj) => {
   return obj;
 };
 
-export const convertBlobToFile = (obj) => {
+export const convertBase64ToFile = (obj) => {
   Object.entries(obj).forEach(([key, value]) => {
-    if (value instanceof Blob && !(value instanceof File) && value.size > 0) {
-      const file = new File([value], key, { type: value.type });
-      obj[key] = file;
+    if (base64Strings.includes(key)) {
+      obj[key] = base64ToFile(value, key);
     }
   });
+
   return obj;
 };
 
@@ -51,8 +83,8 @@ export const convertAgreementsToString = (obj) => {
 };
 
 export const parseFormData = (data) => {
-  // convert Blobs to Files
-  data = convertBlobToFile(data);
+  // convert Base64 strings to Files
+  data = convertBase64ToFile(data);
 
   // convert FileLists to Files
   data = convertFileListsToFiles(data);

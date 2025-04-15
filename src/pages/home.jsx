@@ -1,16 +1,22 @@
 import { FormProvider, useForm } from 'react-hook-form';
-import PatientsDetails from '../components/home/patients-details';
-import InsuranceAndPayment from '../components/home/insurance_and_payment';
 import Button from '@/components/ui/custom-button';
-import PolicyDialog from '@/components/policy';
 import { useState } from 'react';
 import { getItem, parseFormData, removeItem } from '@/lib/utils';
 import { STORAGE_KEY } from '@/lib/constants';
 import useAutoSave from '@/hooks/useAutoSave';
 import useSubmitData from '@/hooks/useSubmitData';
+import { initialValues } from '@/lib/definitions';
+import {
+  PersonalInfo,
+  AddressDetails,
+  MentalHealth,
+  InsuranceDetails,
+  CreditCardDetails,
+  PolicyDialog,
+} from '@/components';
 
 const Home = () => {
-  const defaultValues = getItem(STORAGE_KEY);
+  const defaultValues = getItem(STORAGE_KEY) ?? initialValues;
   const methods = useForm({ defaultValues });
   const { handleSubmit, register, reset, watch } = methods;
   const { isLoading, submitData } = useSubmitData();
@@ -33,14 +39,21 @@ const Home = () => {
   const onSubmit = async (data) => {
     data = parseFormData(data);
 
-    const response = await submitData(data);
+    console.log(data);
 
-    if (response.success) {
-      removeItem(STORAGE_KEY);
-      window.location.reload();
-    }
+    // const response = await submitData(data);
+
+    // if (response.success) {
+    //   removeItem(STORAGE_KEY);
+    //   reset(initialValues);
+    //   setTermsOpened(false);
+    //   window.scrollTo({
+    //     top: 0,
+    //     left: 0,
+    //     behavior: 'smooth',
+    //   });
+    // }
   };
-
   const formState = watch();
   const sanitizedState = { ...formState, policy_agreement: undefined };
   useAutoSave({ value: sanitizedState });
@@ -60,8 +73,16 @@ const Home = () => {
             <form onSubmit={handleSubmit(onSubmit)} noValidate>
               {/* Form content */}
               <div className='space-y-8'>
-                <PatientsDetails />
-                <InsuranceAndPayment />
+                <fieldset className='fieldset'>
+                  <PersonalInfo />
+                  <AddressDetails />
+                  <MentalHealth />
+                </fieldset>
+                <fieldset className='fieldset ~text-sm/base'>
+                  <h2 className='legend'>Insurance & Payment Info</h2>
+                  <InsuranceDetails />
+                  <CreditCardDetails />
+                </fieldset>
               </div>
 
               {/* Agreement Checkbox */}
@@ -98,6 +119,20 @@ const Home = () => {
                   </div>
                 </label>
               </div>
+              {/* 
+              <button
+                className='fixed right-24 top-1/2'
+                type='button'
+                onClick={() =>
+                  scrollTo({
+                    left: 0,
+                    top: 0,
+                    behavior: 'smooth',
+                  })
+                }
+              >
+                Reset
+              </button> */}
 
               {/* Form submit button */}
               <Button

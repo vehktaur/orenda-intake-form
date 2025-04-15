@@ -17,7 +17,6 @@ const useSubmitData = () => {
     try {
       setIsLoading(true);
       response = await axios.post(url, formData);
-
       toast('Form submission successful!');
     } catch (error) {
       setIsError(true);

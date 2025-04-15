@@ -16,6 +16,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover';
+import Signature from '../ui/signature';
 
 export default function PersonalInfo() {
   const { watch } = useFormContext();
@@ -68,7 +69,6 @@ export default function PersonalInfo() {
                   of the first appointment with a minor.
                 </strong>
               </p>
-
               <p className='text-sm text-gray-700'>
                 I understand and give permission for my child to be treated by
                 an Orenda Psychiatry provider. As part of my child&apos;s
@@ -94,13 +94,8 @@ export default function PersonalInfo() {
                   CONFIDENTIALITY.
                 </strong>
               </p>
-
-              <AgreementCheckbox
-                label='I agree'
-                name='guardian_consent'
-                className='mt-2'
-                errorMsg='This field is required'
-              />
+              <Signature name='guardian_consent' />
+              <Signature name='guardian_consent' />
             </div>
 
             <div className='mt-4 flex flex-col gap-x-8 gap-y-6 sm:flex-row'>
