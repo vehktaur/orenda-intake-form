@@ -341,7 +341,7 @@ const Terms = () => {
           Practices.
         </p>
         <p className='mb-4'>
-          BY SIGNING BELOW I AM CERTIFY THAT I HAVE READ, UNDERSTAND AND AGREE
+          BY SIGNING BELOW I CERTIFY THAT I HAVE READ, UNDERSTAND AND AGREE
           TO THE PROVISION OF PSYCHIATRIC SERVICES BY ORENDA PSYCHIATRY AND ITS
           PROVIDERS.
         </p>

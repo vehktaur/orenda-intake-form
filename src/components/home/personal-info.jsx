@@ -89,12 +89,11 @@ export default function PersonalInfo() {
                 present. <br />
                 <br />
                 <strong className='font-medium'>
-                  BY CLICKING 'I AGREE', I ACKNOWLEDGE THAT I HAVE REVIEWED THE
+                  BY SIGNING BELOW, I ACKNOWLEDGE THAT I HAVE REVIEWED THE
                   POLICIES DESCRIBED ABOVE AND UNDERSTAND THE LIMITS TO
                   CONFIDENTIALITY.
                 </strong>
               </p>
-              <Signature name='guardian_consent' />
               <Signature name='guardian_consent' />
             </div>
 

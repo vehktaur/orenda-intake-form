@@ -432,9 +432,9 @@ const PracticePolicy = () => {
           </ol>
 
           <p>
-            BY SIGNING BELOW I AM CERTIFY THAT I HAVE READ, UNDERSTAND AND AGREE
-            TO THE PROVISION OF PSYCHIATRIC SERVICES BY ORENDA PSYCHIATRY AND
-            ITS PROVIDERS.
+            BY SIGNING BELOW I CERTIFY THAT I HAVE READ, UNDERSTAND AND AGREE TO
+            THE PROVISION OF PSYCHIATRIC SERVICES BY ORENDA PSYCHIATRY AND ITS
+            PROVIDERS.
           </p>
 
           <Signature name='signature_4' />
@@ -459,15 +459,6 @@ const PracticePolicy = () => {
           </p>
 
           <Signature name='signature_5' />
-
-          <hr className='my-8 block' />
-
-          <strong className='font-medium'>
-            BY CLICKING 'I AGREE', I ACKNOWLEDGE THAT I HAVE READ, UNDERSTOOD
-            AND AGREE TO ALL THE TERMS WRITTEN ABOVE
-          </strong>
-
-          <AgreementCheckbox label='I agree' name='policy_agreement' />
         </article>
       </div>
     </section>
