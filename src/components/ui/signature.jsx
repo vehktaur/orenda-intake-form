@@ -11,6 +11,7 @@ const Comp = ({ className, onChange }) => {
   const { signature, setSignature } = useSignature();
   const [text, setText] = useState(undefined);
   const [isClicked, setIsClicked] = useState(false);
+  const [focused, setFocused] = useState(false);
   const canvasRef = useRef(null);
 
   /**
@@ -71,6 +72,10 @@ const Comp = ({ className, onChange }) => {
       setText('');
     }
 
+    if (signature.text && text === '') {
+      setText(undefined);
+    }
+
     if (isClicked) {
       drawOnCanvas(signature.text || '');
     }
@@ -91,10 +96,14 @@ const Comp = ({ className, onChange }) => {
           }}
           className='mb-2 mt-4 block w-full max-w-sm rounded bg-white/50 px-4 py-2 outline outline-1 outline-zinc-200 transition-all duration-300 ~text-sm/base focus:outline-zinc-500'
           placeholder='Type your signature here'
+          onFocus={() => {
+            setFocused(true);
+          }}
           onBlur={() => {
             if (text === '') {
               setText(undefined);
             }
+            setFocused(false);
           }}
         />
       )}
@@ -109,7 +118,7 @@ const Comp = ({ className, onChange }) => {
         />
 
         {/* Overlay for 'Click to Sign' */}
-        {signature.text && typeof text === 'undefined' && !isClicked && (
+        {signature.text && !text && !isClicked && !focused && (
           <button
             type='button'
             onClick={sign}
