@@ -1,19 +1,24 @@
 import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
+
 import { base64Strings, radioCheckboxes } from './definitions';
+
+import Cookies from 'js-cookie';
+import { EXPIRY_TIME } from './constants';
 
 export const cn = (...inputs) => twMerge(clsx(inputs));
 
 export const setItem = (key, value) =>
-  localStorage.setItem(key, JSON.stringify(value));
+  Cookies.set(key, JSON.stringify(value), { expires: EXPIRY_TIME });
+
 export const getItem = (key) => {
-  const item = localStorage.getItem(key);
+  let item = Cookies.get(key);
   if (item) {
-    return JSON.parse(item);
+    item = JSON.parse(item);
   }
-  return undefined;
+  return item;
 };
-export const removeItem = (key) => localStorage.removeItem(key);
+export const removeItem = (key) => Cookies.remove(key);
 
 export const isNumeric = (value) => {
   if (typeof value === 'number') return !isNaN(value);
