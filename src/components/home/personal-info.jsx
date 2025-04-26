@@ -94,7 +94,7 @@ export default function PersonalInfo() {
                   CONFIDENTIALITY.
                 </strong>
               </p>
-              <Signature name='guardian_consent' />
+              <Signature name='guardian_signature' />
             </div>
 
             <div className='mt-4 flex flex-col gap-x-8 gap-y-6 sm:flex-row'>
@@ -127,27 +127,25 @@ export default function PersonalInfo() {
   );
 }
 
-const DesktopTooltip = () => {
-  return (
-    <TooltipProvider>
-      <Tooltip>
-        <TooltipTrigger
-          type='button'
-          className='ml-2 hidden size-4 place-items-center rounded-full border-2 border-zinc-700 text-xs leading-none md:grid'
-        >
-          ?
-        </TooltipTrigger>
-        <TooltipContent>
-          <p className='max-w-[40ch]'>
-            This information is necessary for medical reasons related to
-            psychiatric medications and treatment planning. This information
-            will remain confidential.
-          </p>
-        </TooltipContent>
-      </Tooltip>
-    </TooltipProvider>
-  );
-};
+const DesktopTooltip = () => (
+  <TooltipProvider>
+    <Tooltip>
+      <TooltipTrigger
+        type='button'
+        className='ml-2 hidden size-4 place-items-center rounded-full border-2 border-zinc-700 text-xs leading-none md:grid'
+      >
+        ?
+      </TooltipTrigger>
+      <TooltipContent>
+        <p className='max-w-[40ch]'>
+          This information is necessary for medical reasons related to
+          psychiatric medications and treatment planning. This information will
+          remain confidential.
+        </p>
+      </TooltipContent>
+    </Tooltip>
+  </TooltipProvider>
+);
 
 const MobileTooltip = () => (
   <Popover>

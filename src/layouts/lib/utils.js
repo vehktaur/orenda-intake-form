@@ -1,7 +1,7 @@
 import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
-import { base64Strings, radioCheckboxes } from './definitions';
+import { base64Strings } from './definitions';
 
 import Cookies from 'js-cookie';
 import { EXPIRY_TIME } from './constants';
@@ -49,14 +49,16 @@ export const base64ToFile = (base64Data, fileName) => {
     uint8Array[i] = byteString.charCodeAt(i);
   }
 
-  try {
-    return new File([uint8Array], fileName, { type: mime });
-  } catch {
-    const blob = new Blob([uint8Array], { type: mime });
-    blob.name = fileName;
-    return blob;
+  // Ensure filename has an extension
+  if (!/\.[0-9a-z]+$/i.test(fileName)) {
+    const ext = mime.split('/')[1] || 'png'; // fallback
+    fileName = `${fileName}.${ext}`;
   }
+
+  return new File([uint8Array], fileName, { type: mime });
 };
+
+
 
 export const convertFileListsToFiles = (obj) => {
   Object.entries(obj).forEach(([key, value]) => {
@@ -70,17 +72,7 @@ export const convertFileListsToFiles = (obj) => {
 export const convertBase64ToFile = (obj) => {
   Object.entries(obj).forEach(([key, value]) => {
     if (base64Strings.includes(key)) {
-      obj[key] = base64ToFile(value, key);
-    }
-  });
-
-  return obj;
-};
-
-export const convertAgreementsToString = (obj) => {
-  Object.entries(obj).forEach(([key, value]) => {
-    if (radioCheckboxes.includes(key)) {
-      obj[key] = value[0];
+      obj[key] = base64ToFile(value.base64, key);
     }
   });
 
@@ -93,9 +85,6 @@ export const parseFormData = (data) => {
 
   // convert FileLists to Files
   data = convertFileListsToFiles(data);
-
-  //convert checkbox agreement array to string
-  data = convertAgreementsToString(data);
 
   //convert date object to date
   const rawDate = new Date(data.date_of_birth);

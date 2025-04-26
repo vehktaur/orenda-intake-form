@@ -37,7 +37,7 @@ const Terms = () => {
           THE ITEMS CONTAINED IN THIS DOCUMENT.
         </p>
 
-        <Signature name='signature_1' />
+        <Signature name='telehealth_consent_signature' />
       </article>
 
       {/* NOTICE OF PRIVACY PRACTICES */}
@@ -346,7 +346,7 @@ const Terms = () => {
           PROVIDERS.
         </p>
 
-        <Signature name='signature_2' />
+        <Signature name='privacy_policy_signature' />
       </article>
     </section>
   );

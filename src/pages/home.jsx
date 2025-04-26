@@ -1,11 +1,11 @@
 import { FormProvider, useForm } from 'react-hook-form';
 import Button from '@/components/ui/custom-button';
 import { useState } from 'react';
-import { getItem, parseFormData, removeItem } from '@/lib/utils';
-import { STORAGE_KEY } from '@/lib/constants';
+import { getItem, parseFormData, removeItem } from '@/layouts/lib/utils';
+import { STORAGE_KEY } from '@/layouts/lib/constants';
 import useAutoSave from '@/hooks/useAutoSave';
 import useSubmitData from '@/hooks/useSubmitData';
-import { initialValues } from '@/lib/definitions';
+import { initialValues } from '@/layouts/lib/definitions';
 import {
   PersonalInfo,
   AddressDetails,
@@ -41,18 +41,18 @@ const Home = () => {
 
     console.log(data);
 
-    // const response = await submitData(data);
+    const response = await submitData(data);
 
-    // if (response.success) {
-    //   removeItem(STORAGE_KEY);
-    //   reset(initialValues);
-    //   setTermsOpened(false);
-    //   window.scrollTo({
-    //     top: 0,
-    //     left: 0,
-    //     behavior: 'smooth',
-    //   });
-    // }
+    if (response.success) {
+      removeItem(STORAGE_KEY);
+      reset(initialValues);
+      setTermsOpened(false);
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth',
+      });
+    }
   };
   const formState = watch();
   const sanitizedState = { ...formState, policy_agreement: undefined };

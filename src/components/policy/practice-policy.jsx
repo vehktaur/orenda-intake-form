@@ -166,7 +166,7 @@ const PracticePolicy = () => {
             BY SIGNING BELOW, I CERTIFY THAT I HAVE READ, UNDERSTAND AND AGREE
             TO THE TERMS AND CONDITIONS CONTAINED IN THIS DOCUMENT.
           </p>
-          <Signature name='signature_3' />
+          <Signature name='practice_policies_signature' />
         </article>
         <article className='space-y-4'>
           <h3 className='font-medium'>
@@ -437,7 +437,7 @@ const PracticePolicy = () => {
             PROVIDERS.
           </p>
 
-          <Signature name='signature_4' />
+          <Signature name='informed_consent_signature' />
         </article>
 
         <article className='space-y-4'>
@@ -458,7 +458,7 @@ const PracticePolicy = () => {
             information on prescribed medications, dosages, and refill history.
           </p>
 
-          <Signature name='signature_5' />
+          <Signature name='medication_history_signature' />
         </article>
       </div>
     </section>

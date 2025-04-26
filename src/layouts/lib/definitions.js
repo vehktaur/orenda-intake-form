@@ -53,16 +53,15 @@ export const usStates = [
   'Wyoming',
 ];
 
-export const radioCheckboxes = ['policy_agreement'];
-
-export const base64Strings = [
-  'guardian_consent',
-  'signature_1',
-  'signature_2',
-  'signature_3',
-  'signature_4',
-  'signature_5',
+export const policy_signatures = [
+  'medication_history_signature',
+  'informed_consent_signature',
+  'practice_policies_signature',
+  'privacy_policy_signature',
+  'telehealth_consent_signature',
 ];
+
+export const base64Strings = ['guardian_signature', ...policy_signatures];
 
 export const initialValues = {
   first_name: '',
@@ -71,7 +70,7 @@ export const initialValues = {
   phone: '',
   email: '',
   for_minor_child: '',
-  guardian_consent: '',
+  guardian_signature: '',
   relationship_with_child: '',
   sex_assigned_at_birth: '',
   gender: '',
@@ -96,4 +95,9 @@ export const initialValues = {
   credit_card_csv: '',
   billing_zip_code: '',
   policy_agreement: '',
+  medication_history_signature: '',
+  informed_consent_signature: '',
+  practice_policies_signature: '',
+  privacy_policy_signature: '',
+  telehealth_consent_signature: '',
 };

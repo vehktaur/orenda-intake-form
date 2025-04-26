@@ -1,6 +1,6 @@
 import Input from '@/components/ui/input';
 import Select from '@/components/ui/select';
-import { usStates } from '@/lib/definitions';
+import { usStates } from '@/layouts/lib/definitions';
 import IMask from '../ui/imask';
 
 /* Address Section, Tel & Email */
@@ -28,7 +28,7 @@ const AddressDetails = () => {
             name='zip_code'
             errorMsg='State is required'
             size='small'
-            mask={'9999999'}
+            mask={'99999'}
             maskChar=''
           />
         </div>

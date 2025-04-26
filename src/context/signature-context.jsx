@@ -2,7 +2,6 @@ import { createContext, useState } from 'react';
 
 const initialValue = {
   base64: '',
-  blob: undefined,
   text: '',
 };
 

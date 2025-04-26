@@ -1,5 +1,5 @@
-import { STORAGE_KEY } from '@/lib/constants';
-import { setItem } from '@/lib/utils';
+import { STORAGE_KEY } from '@/layouts/lib/constants';
+import { setItem } from '@/layouts/lib/utils';
 import { deepEqual } from 'fast-equals';
 import { useEffect, useRef } from 'react';
 

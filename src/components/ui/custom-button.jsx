@@ -1,4 +1,4 @@
-import { cn } from '@/lib/utils';
+import { cn } from '@/layouts/lib/utils';
 import { Slot } from '@radix-ui/react-slot';
 
 const Button = ({

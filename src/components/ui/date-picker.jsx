@@ -1,7 +1,7 @@
 import { Controller } from 'react-hook-form';
 import ReactDatePicker from 'react-date-picker';
 import { Calendar } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { cn } from '@/layouts/lib/utils';
 import '@/styles/react-date-picker.css';
 import 'react-calendar/dist/Calendar.css';
 
@@ -27,7 +27,7 @@ const DatePicker = ({
       render={({ field, fieldState: { error } }) => (
         <div>
           <ReactDatePicker
-            value={field.value} 
+            value={field.value}
             onChange={field.onChange}
             required={required}
             calendarIcon={<Calendar className='size-5' />}
