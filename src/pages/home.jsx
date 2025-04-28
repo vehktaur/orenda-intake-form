@@ -1,11 +1,11 @@
 import { FormProvider, useForm } from 'react-hook-form';
 import Button from '@/components/ui/custom-button';
 import { useState } from 'react';
-import { getItem, parseFormData, removeItem } from '@/layouts/lib/utils';
-import { STORAGE_KEY } from '@/layouts/lib/constants';
+import { getItem, parseFormData, removeItem } from '@/lib/utils';
+import { STORAGE_KEY } from '@/lib/constants';
 import useAutoSave from '@/hooks/useAutoSave';
 import useSubmitData from '@/hooks/useSubmitData';
-import { initialValues } from '@/layouts/lib/definitions';
+import { initialValues } from '@/lib/definitions';
 import {
   PersonalInfo,
   AddressDetails,

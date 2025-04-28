@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Controller } from 'react-hook-form';
 
-import { cn } from '@/layouts/lib/utils';
+import { cn } from '@/lib/utils';
 import useSignature from '@/hooks/useSignature';
 
 const CANVAS_X = 1200; // Canvas width in pixels

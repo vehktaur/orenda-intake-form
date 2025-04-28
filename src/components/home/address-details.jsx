@@ -1,6 +1,6 @@
 import Input from '@/components/ui/input';
 import Select from '@/components/ui/select';
-import { usStates } from '@/layouts/lib/definitions';
+import { usStates } from '@/lib/definitions';
 import IMask from '../ui/imask';
 
 /* Address Section, Tel & Email */

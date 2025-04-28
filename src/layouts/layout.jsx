@@ -1,6 +1,6 @@
 import { ThemeProvider } from '@mui/material';
 import { Outlet, useLocation } from 'react-router';
-import theme from '@/layouts/lib/mui-theme';
+import theme from '@/lib/mui-theme';
 import { useEffect } from 'react';
 import { Toaster } from '@/components/ui/sonner';
 import SignatureProvider from '@/context/signature-context';

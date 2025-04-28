@@ -13,7 +13,8 @@ import PracticePolicy from './practice-policy';
 import { ArrowDown } from 'lucide-react';
 import { useRef } from 'react';
 import { useFormContext } from 'react-hook-form';
-import { policy_signatures } from '@/layouts/lib/definitions';
+import { policy_signatures } from '@/lib/definitions';
+import { cn } from '@/lib/utils';
 
 const PolicyDialog = ({ children, ...props }) => {
   const content = useRef();
@@ -91,15 +92,26 @@ const PolicyDialog = ({ children, ...props }) => {
             <PracticePolicy />
           </div>
 
-          <AlertDialogFooter className='relative mt-10'>
-            <button
-              className='absolute bottom-0 left-0 rounded border px-3 py-1.5 text-sm font-medium'
-              onClick={scrollTop}
-              type='button'
-            >
-              Back to Top
-            </button>
+          <AlertDialogFooter
+            className={cn('mt-10', {
+              'sm:items-center sm:justify-between gap-5': !allowSubmit,
+            })}
+          >
+            {!allowSubmit && (
+              <>
+                <button
+                  className='rounded border px-3 py-1.5 text-sm font-medium'
+                  onClick={scrollTop}
+                  type='button'
+                >
+                  Back to Top
+                </button>
 
+                <p className='error mt-0 text-center'>
+                  Please sign where required to proceed
+                </p>
+              </>
+            )}
             <AlertDialogCancel
               onClick={onClick}
               disabled={!allowSubmit}
