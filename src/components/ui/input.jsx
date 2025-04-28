@@ -28,9 +28,10 @@ const Input = ({
         minLength,
         validate: validations,
       }}
-      render={({ field, fieldState: { error } }) => (
+      render={({ field: { ref, ...field }, fieldState: { error } }) => (
         <TextField
           {...field}
+          inputRef={ref}
           required={required}
           type={type}
           helperText={error ? error.message : null}
