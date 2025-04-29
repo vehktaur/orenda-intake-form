@@ -89,7 +89,7 @@ const Comp = ({ id, className, onChange, value }) => {
   }, [signature, text]);
 
   useEffect(() => {
-    if (value.base64) {
+    if (value?.base64) {
       drawOnCanvas(value.text);
     }
   }, [drawOnCanvas]);

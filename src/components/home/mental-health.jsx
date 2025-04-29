@@ -4,6 +4,7 @@ import Input from '@/components/ui/input';
 import Radios from '@/components/ui/radios';
 import AgreementCheckbox from '@/components/ui/agreement-checkbox';
 import Checkboxes from '../ui/checkboxes';
+import SignatureMaker from '../ui/signature';
 
 const MentalHealth = () => {
   const { watch } = useFormContext();
@@ -470,6 +471,18 @@ const MentalHealth = () => {
         mask='(999) 999-9999'
         required={true}
       />
+
+      <p className='label !~mt-12/16'>
+        By clicking on the checkbox and signing below, I hereby certify that I
+        have answered all questions completely and truthfully to the best of my
+        knowledge
+      </p>
+
+      <AgreementCheckbox
+        name='honesty'
+        label='I answered all questions truthfully'
+      />
+      <SignatureMaker name='honesty_signature' />
     </section>
   );
 };

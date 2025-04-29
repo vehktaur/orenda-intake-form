@@ -61,7 +61,11 @@ export const policy_signatures = [
   'telehealth_consent_signature',
 ];
 
-export const base64Strings = ['guardian_signature', ...policy_signatures];
+export const base64Strings = [
+  'guardian_signature',
+  'honesty_signature',
+  ...policy_signatures,
+];
 
 export const initialValues = {
   first_name: '',
@@ -125,4 +129,6 @@ export const initialValues = {
   current_occupation: '',
   living_situation: '',
   has_weapons: '',
+  honesty: '',
+  honesty_signature: '',
 };
