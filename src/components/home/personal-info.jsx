@@ -2,7 +2,6 @@ import { useFormContext } from 'react-hook-form';
 import IMask from '@/components/ui/imask';
 import Input from '@/components/ui/input';
 import Radios from '@/components/ui/radios';
-import AgreementCheckbox from '@/components/ui/agreement-checkbox';
 import DatePicker from '@/components/ui/date-picker';
 import 'react-date-picker/dist/DatePicker.css';
 import {
